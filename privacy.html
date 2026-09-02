@@ -1,94 +1,157 @@
 <!doctype html>
 <html lang="en">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>AudioToText — Privacy Policy</title>
-  <link rel="stylesheet" href="style.css">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>AudioToText — Privacy Policy</title>
+<meta name="description" content="Privacy policy for AudioToText. All transcription and summarization run on-device; nothing you say or type is uploaded anywhere.">
+<meta name="theme-color" content="#5b4ff5" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#120e21" media="(prefers-color-scheme: dark)">
+<link rel="icon" href="mark.png">
+<link rel="stylesheet" href="style.css">
+<!-- Set before first paint so revealed content never flashes. -->
+<script>document.documentElement.classList.add('js');</script>
 </head>
 <body>
-  <div class="wrap">
-    <nav class="crumbs"><a href="index.html">AudioToText</a> / Privacy Policy</nav>
-    <h1>Privacy Policy</h1>
-    <p class="updated">Last updated: September 2, 2026</p>
+<div class="progress" aria-hidden="true"></div>
+<div class="wrap">
 
-    <p>
-      AudioToText is an on-device dictation, transcription, and note-taking
-      app for iOS. <strong>All speech recognition and AI summarization run
-      entirely on your device.</strong> We do not collect, transmit, or
-      store your audio, transcripts, or any personal data on any server —
-      there is nothing to send, because the app has no server.
-    </p>
+<header>
+  <img src="mark.png" alt="AudioToText app icon" width="108" height="108">
+  <h1>Privacy Policy</h1>
+  <p class="tagline">AudioToText for iPhone</p>
+  <p class="nav"><a href="index.html">Support</a></p>
+</header>
 
-    <h2>What the app accesses, and why</h2>
-    <ul>
-      <li>
-        <strong>Microphone.</strong> Used only to capture audio for
-        on-device transcription. Audio is processed locally and is never
-        uploaded anywhere.
-      </li>
-      <li>
-        <strong>Speech recognition.</strong> Transcription runs using
-        either Apple's built-in, on-device Speech framework, or an
-        optional NVIDIA Parakeet model running locally via Apple's CoreML
-        — your choice. Both run entirely on-device; neither sends audio or
-        text off your phone.
-      </li>
-      <li>
-        <strong>AI summarization.</strong> Note summaries are generated
-        entirely on-device using Apple's Foundation Models framework. No
-        transcript or summary is sent to any external service.
-      </li>
-      <li>
-        <strong>Keyboard "Full Access".</strong> iOS keyboard extensions
-        cannot access the microphone directly, and are only allowed to
-        read the App Group — a small piece of storage shared between the
-        keyboard and the main app on your device — once Full Access is
-        granted. AudioToText uses this solely so the keyboard can tell
-        when a dictation session is active and read back the transcribed
-        text; it is not used for network access, analytics, or any other
-        purpose.
-      </li>
-      <li>
-        <strong>Network access for model downloads.</strong> If you choose
-        to use an optional Parakeet model, the app downloads that model's
-        weights (a file, not your data) from Hugging Face's servers. This
-        is a one-way download — no audio, text, or personal information is
-        ever uploaded as part of it. Apple's built-in Speech model requires
-        no download.
-      </li>
-    </ul>
+<nav class="toc reveal" aria-labelledby="toc-heading">
+  <h2 id="toc-heading">Contents</h2>
+  <ol>
+    <li><a href="#short">The short version</a></li>
+    <li><a href="#processing">How transcription and summarization work</a></li>
+    <li><a href="#fullaccess">Why the keyboard needs Full Access</a></li>
+    <li><a href="#downloads">Model downloads</a></li>
+    <li><a href="#stored">What AudioToText stores</a></li>
+    <li><a href="#nothing">What we don't do</a></li>
+    <li><a href="#children">Children</a></li>
+    <li><a href="#rights">Your rights</a></li>
+    <li><a href="#changes">Changes to this policy</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ol>
+</nav>
 
-    <h2>What we don't do</h2>
-    <ul>
-      <li>No user accounts or sign-in.</li>
-      <li>No analytics, tracking, or advertising SDKs.</li>
-      <li>No third-party data sharing — there's no data collected to share.</li>
-      <li>
-        No cloud storage of recordings, transcripts, or summaries — they
-        stay in the app's local storage on your device, under your control
-        (and removed if you delete them or delete the app).
-      </li>
-    </ul>
+<h2 id="short" class="reveal">The short version</h2>
 
-    <h2>Children's privacy</h2>
-    <p>
-      AudioToText is not directed at children under 13, and since the app
-      does not collect data from any user, it does not knowingly collect
-      data from children.
-    </p>
+<div class="card reveal">
+<p><strong>Everything you say or type in AudioToText stays on your
+iPhone.</strong> Transcription and AI summarization both run entirely
+on-device. There are no accounts, no servers of ours, and no analytics —
+AudioToText has nothing to upload, because nothing it does leaves your
+phone.</p>
+<p>The only network request the app ever makes on your behalf is
+downloading the files of an optional transcription model you chose to
+use — a one-way download of model weights, not your data. See
+<a href="#downloads">Model downloads</a> below.</p>
+</div>
 
-    <h2>Changes to this policy</h2>
-    <p>
-      If this policy changes, we'll update the date above. Continued use
-      of the app after a change means you accept the update.
-    </p>
+<h2 id="processing" class="reveal">How transcription and summarization work</h2>
 
-    <h2>Contact</h2>
-    <p>
-      Questions about this policy? Email
-      <a href="mailto:daniel.li.work+support@gmail.com">daniel.li.work+support@gmail.com</a>.
-    </p>
-  </div>
+<p class="reveal">AudioToText transcribes speech using either Apple's
+built-in, on-device Speech framework, or an optional NVIDIA Parakeet model
+running locally through Apple's CoreML — whichever you choose in the
+Model screen. Both run entirely on your device; neither sends audio or
+text anywhere.</p>
+
+<p class="reveal">Meeting notes and summaries are generated entirely
+on-device using Apple's Foundation Models framework. No transcript,
+recording, or summary is ever sent to an external service, including
+Apple's own servers.</p>
+
+<h2 id="fullaccess" class="reveal">Why the keyboard needs Full Access</h2>
+
+<p class="reveal">iOS keyboard extensions cannot use the microphone
+directly. AudioToText's keyboard works around that by having the main app
+claim the microphone and hand transcribed text to the keyboard through a
+small piece of storage shared between them (an "App Group") — and iOS
+only allows a keyboard extension to read that shared storage once you
+grant Full Access.</p>
+
+<div class="card reveal">
+<p>Full Access is used <strong>solely</strong> for that local, on-device
+handoff: letting the keyboard know a dictation session is running, and
+reading back the words it produced. AudioToText does not use Full Access
+for network requests, analytics, or any purpose beyond this.</p>
+</div>
+
+<h2 id="downloads" class="reveal">Model downloads</h2>
+
+<p class="reveal">Apple's built-in Speech model ships with iOS and needs no
+download. If you choose to use an optional Parakeet model instead, the app
+downloads that model's weight files from Hugging Face's servers over the
+network. This is a one-way download of a file — no audio, transcript, or
+personal information is uploaded as part of it, and it only happens when
+you explicitly choose to download a model.</p>
+
+<h2 id="stored" class="reveal">What AudioToText stores</h2>
+
+<p class="reveal">The app saves what it needs to do its job, and nothing
+else:</p>
+
+<ul class="reveal">
+  <li>audio recordings you make, and their transcripts and summaries</li>
+  <li>downloaded transcription model files, if you chose to use one</li>
+  <li>your settings, such as which transcription model is selected</li>
+</ul>
+
+<p class="reveal">All of it is written to a private container on your
+iPhone. It is not synced to iCloud, not backed up to any server of ours,
+and never transmitted. Nobody — including the developer — can see it.</p>
+
+<p class="reveal">You can delete any recording from within the app.
+Deleting the app removes everything at once. There is no copy anywhere
+else to request the deletion of.</p>
+
+<h2 id="nothing" class="reveal">What we don't do</h2>
+
+<ul class="reveal">
+  <li>No user accounts or sign-in.</li>
+  <li>No analytics, tracking, or advertising SDKs.</li>
+  <li>No third-party data sharing — there's no data collected to share.</li>
+  <li>No cloud storage of recordings, transcripts, or summaries.</li>
+</ul>
+
+<h2 id="children" class="reveal">Children</h2>
+
+<p class="reveal">AudioToText is a general-audience app and is not
+directed at children under 13. Because the app collects no data from any
+user, it does not knowingly collect data from children either.</p>
+
+<h2 id="rights" class="reveal">Your rights</h2>
+
+<p class="reveal">Under UK and EU data protection law you have rights of
+access, correction, erasure and objection over personal data held about
+you. For AudioToText, those rights are satisfied directly on your device:
+everything the app stores is visible in the app, can be edited or deleted
+there, and is destroyed when you delete the app. The developer holds no
+copy and so has nothing to disclose or erase.</p>
+
+<h2 id="changes" class="reveal">Changes to this policy</h2>
+
+<p class="reveal">If this policy changes it will be updated on this page
+and the date below will change with it. If a change ever materially
+affects how your information is handled, it will be described here rather
+than quietly amended.</p>
+
+<h2 id="contact" class="reveal">Contact</h2>
+
+<p class="reveal">Questions about privacy, or anything else:
+<a href="mailto:daniel.li.work+support@gmail.com">daniel.li.work+support@gmail.com</a></p>
+
+<footer>
+  <p>Last updated 2 September 2026<br>
+  <a href="index.html">Support</a></p>
+</footer>
+
+</div>
+<script src="site.js" defer></script>
 </body>
 </html>

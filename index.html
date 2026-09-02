@@ -1,53 +1,115 @@
 <!doctype html>
 <html lang="en">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>AudioToText — Support</title>
-  <link rel="stylesheet" href="style.css">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>AudioToText — Support</title>
+<meta name="description" content="Support and help for AudioToText, an iPhone app for on-device dictation, transcription and AI meeting notes.">
+<meta name="theme-color" content="#5b4ff5" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#120e21" media="(prefers-color-scheme: dark)">
+<link rel="icon" href="mark.png">
+<link rel="stylesheet" href="style.css">
+<!-- Set before first paint so revealed content never flashes. -->
+<script>document.documentElement.classList.add('js');</script>
 </head>
 <body>
-  <div class="wrap">
-    <h1>AudioToText</h1>
-    <p class="tagline">On-device dictation and transcription for iOS.</p>
+<div class="progress" aria-hidden="true"></div>
+<div class="wrap">
 
-    <h2>Support</h2>
-    <p>
-      Need help, found a bug, or have a feature request? Email us and we'll
-      get back to you:
-    </p>
-    <a class="card" href="mailto:daniel.li.work+support@gmail.com">
-      <strong>daniel.li.work+support@gmail.com</strong>
-      <span>Bug reports, feature requests, general support</span>
-    </a>
+<header>
+  <img src="mark.png" alt="AudioToText app icon" width="108" height="108">
+  <h1>AudioToText</h1>
+  <p class="tagline">On-device dictation, transcription and AI meeting notes.</p>
+  <p class="nav"><a href="privacy.html">Privacy Policy</a></p>
+</header>
 
-    <h2>Common questions</h2>
-    <ul>
-      <li>
-        <strong>Why does the keyboard need "Full Access"?</strong>
-        iOS only allows a custom keyboard to read the shared, on-device
-        storage it uses to talk to the main AudioToText app — where your
-        dictated text comes from — once Full Access is granted. It's not
-        used for anything else. See the
-        <a href="privacy.html">Privacy Policy</a> for details.
-      </li>
-      <li>
-        <strong>Does dictation work offline?</strong>
-        Yes, once a model is downloaded. Apple's built-in Speech engine
-        needs no download at all; the optional Parakeet models are
-        downloaded once and then work fully offline.
-      </li>
-      <li>
-        <strong>Is my audio or text sent anywhere?</strong>
-        No. All transcription and summarization runs on your device. See
-        the <a href="privacy.html">Privacy Policy</a> for the full picture.
-      </li>
-    </ul>
+<h2 class="reveal">What it does</h2>
 
-    <h2>Legal</h2>
-    <p><a href="privacy.html">Privacy Policy</a></p>
+<p class="reveal">AudioToText adds a custom keyboard that dictates into any
+app — Messages, Mail, WhatsApp, anywhere you type — using on-device speech
+recognition. Tap the mic, talk, and your words are typed for you as you
+speak.</p>
 
-    <footer>AudioToText</footer>
-  </div>
+<p class="reveal">It also records and transcribes standalone conversations
+or notes, then turns them into structured meeting notes — title, topics,
+decisions, and action items — generated entirely on-device.</p>
+
+<h2 id="faq" class="reveal">Common questions</h2>
+
+<details class="faq reveal">
+  <summary>Why does the keyboard need "Full Access"?</summary>
+  <div class="faq-panel"><div class="faq-body">
+    <p>iOS does not allow a keyboard extension to use the microphone
+    directly. AudioToText works around that by having the main app claim
+    the microphone and hand the transcribed text to the keyboard through a
+    small piece of storage shared between them — and iOS only allows a
+    keyboard to read that shared storage once Full Access is granted.</p>
+    <p>Full Access is used for that one purpose. It is not used for network
+    access, analytics, or anything else. See the
+    <a href="privacy.html">Privacy Policy</a> for the full explanation.</p>
+  </div></div>
+</details>
+
+<details class="faq reveal">
+  <summary>Do I have to switch apps every time I dictate?</summary>
+  <div class="faq-panel"><div class="faq-body">
+    <p>Only once per session. The first time you dictate, AudioToText opens
+    briefly to claim the microphone — that's an iOS requirement, not a
+    choice. After that it stays running in the background, and the keyboard's
+    mic button starts and stops listening in place, in whatever app you're
+    typing in, with no further switching.</p>
+  </div></div>
+</details>
+
+<details class="faq reveal">
+  <summary>Does dictation work offline?</summary>
+  <div class="faq-panel"><div class="faq-body">
+    <p>Yes, once a model is ready. Apple's built-in Speech engine needs no
+    download at all. The optional NVIDIA Parakeet models are downloaded
+    once, then work fully offline from then on.</p>
+  </div></div>
+</details>
+
+<details class="faq reveal">
+  <summary>Which transcription model should I use?</summary>
+  <div class="faq-panel"><div class="faq-body">
+    <p>Apple's built-in engine is the default: no download, and it supports
+    every language your device does. The Parakeet models are optional,
+    English-only alternatives with different accuracy/speed trade-offs — pick
+    whichever fits how you use dictation, from the Model screen in the app.</p>
+  </div></div>
+</details>
+
+<details class="faq reveal">
+  <summary>Is my audio or text sent anywhere?</summary>
+  <div class="faq-panel"><div class="faq-body">
+    <p>No. Transcription and AI summarization both run entirely on your
+    device. See the <a href="privacy.html">Privacy Policy</a> for the full
+    picture, including the one place the app does use the network — downloading
+    an optional model's files, not your data.</p>
+  </div></div>
+</details>
+
+<details class="faq reveal">
+  <summary>Where do my recordings and notes go?</summary>
+  <div class="faq-panel"><div class="faq-body">
+    <p>They stay in the app's local storage on your iPhone. Deleting a
+    recording removes it; deleting the app removes everything at once. There
+    is no server copy anywhere.</p>
+  </div></div>
+</details>
+
+<h2 class="reveal">Something else</h2>
+
+<p class="reveal">Bugs, requests, or anything the answers above don't cover:
+<a href="mailto:daniel.li.work+support@gmail.com">daniel.li.work+support@gmail.com</a></p>
+
+<footer>
+  <p>AudioToText for iPhone<br>
+  <a href="privacy.html">Privacy Policy</a></p>
+</footer>
+
+</div>
+<script src="site.js" defer></script>
 </body>
 </html>
