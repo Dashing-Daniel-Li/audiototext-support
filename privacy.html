@@ -1,0 +1,94 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>AudioToText — Privacy Policy</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="wrap">
+    <nav class="crumbs"><a href="index.html">AudioToText</a> / Privacy Policy</nav>
+    <h1>Privacy Policy</h1>
+    <p class="updated">Last updated: September 2, 2026</p>
+
+    <p>
+      AudioToText is an on-device dictation, transcription, and note-taking
+      app for iOS. <strong>All speech recognition and AI summarization run
+      entirely on your device.</strong> We do not collect, transmit, or
+      store your audio, transcripts, or any personal data on any server —
+      there is nothing to send, because the app has no server.
+    </p>
+
+    <h2>What the app accesses, and why</h2>
+    <ul>
+      <li>
+        <strong>Microphone.</strong> Used only to capture audio for
+        on-device transcription. Audio is processed locally and is never
+        uploaded anywhere.
+      </li>
+      <li>
+        <strong>Speech recognition.</strong> Transcription runs using
+        either Apple's built-in, on-device Speech framework, or an
+        optional NVIDIA Parakeet model running locally via Apple's CoreML
+        — your choice. Both run entirely on-device; neither sends audio or
+        text off your phone.
+      </li>
+      <li>
+        <strong>AI summarization.</strong> Note summaries are generated
+        entirely on-device using Apple's Foundation Models framework. No
+        transcript or summary is sent to any external service.
+      </li>
+      <li>
+        <strong>Keyboard "Full Access".</strong> iOS keyboard extensions
+        cannot access the microphone directly, and are only allowed to
+        read the App Group — a small piece of storage shared between the
+        keyboard and the main app on your device — once Full Access is
+        granted. AudioToText uses this solely so the keyboard can tell
+        when a dictation session is active and read back the transcribed
+        text; it is not used for network access, analytics, or any other
+        purpose.
+      </li>
+      <li>
+        <strong>Network access for model downloads.</strong> If you choose
+        to use an optional Parakeet model, the app downloads that model's
+        weights (a file, not your data) from Hugging Face's servers. This
+        is a one-way download — no audio, text, or personal information is
+        ever uploaded as part of it. Apple's built-in Speech model requires
+        no download.
+      </li>
+    </ul>
+
+    <h2>What we don't do</h2>
+    <ul>
+      <li>No user accounts or sign-in.</li>
+      <li>No analytics, tracking, or advertising SDKs.</li>
+      <li>No third-party data sharing — there's no data collected to share.</li>
+      <li>
+        No cloud storage of recordings, transcripts, or summaries — they
+        stay in the app's local storage on your device, under your control
+        (and removed if you delete them or delete the app).
+      </li>
+    </ul>
+
+    <h2>Children's privacy</h2>
+    <p>
+      AudioToText is not directed at children under 13, and since the app
+      does not collect data from any user, it does not knowingly collect
+      data from children.
+    </p>
+
+    <h2>Changes to this policy</h2>
+    <p>
+      If this policy changes, we'll update the date above. Continued use
+      of the app after a change means you accept the update.
+    </p>
+
+    <h2>Contact</h2>
+    <p>
+      Questions about this policy? Email
+      <a href="mailto:daniel.li.work+support@gmail.com">daniel.li.work+support@gmail.com</a>.
+    </p>
+  </div>
+</body>
+</html>
