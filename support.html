@@ -1,0 +1,196 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Sotto Voce Support</title>
+<meta name="description" content="Help for Sotto Voce: Private Dictation — adding the keyboard, why it needs Full Access, dictating, model downloads, Pro and subscriptions.">
+<meta name="theme-color" content="#f7f4ee" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#16140f" media="(prefers-color-scheme: dark)">
+<link rel="icon" type="image/png" sizes="64x64" href="assets/icon-64.png">
+<link rel="apple-touch-icon" href="assets/icon-180.png">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+
+<header class="site-header">
+  <div class="wrap">
+    <a class="brand" href="./"><img src="assets/icon-64.png" alt="" width="32" height="32"><span>Sotto Voce</span></a>
+    <nav class="site-nav" aria-label="Site">
+      <ul>
+        <li><a href="support.html" aria-current="page">Support</a></li>
+        <li><a href="privacy.html">Privacy</a></li>
+        <li><a href="https://apps.apple.com/us/app/sotto-voce/id6808935928">App Store</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<main id="main" class="wrap narrow">
+
+<div class="doc-hero">
+  <p class="eyebrow">Sotto Voce · Support</p>
+  <h1>Help with Sotto Voce</h1>
+  <p class="lede">Setting up the keyboard, dictating, and answers to common questions. Something not covered? <a href="#contact">Get in touch</a>.</p>
+</div>
+
+<nav class="toc" aria-labelledby="toc-heading">
+  <h2 id="toc-heading">On this page</h2>
+  <ol>
+    <li><a href="#setup">Add the keyboard</a></li>
+    <li><a href="#full-access">Why Full Access is needed</a></li>
+    <li><a href="#dictate">Dictate in any app</a></li>
+    <li><a href="#troubleshooting">Troubleshooting</a></li>
+    <li><a href="#pro">Free, Pro and purchases</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ol>
+</nav>
+
+<div class="doc">
+
+<h2 id="setup">Add the keyboard</h2>
+<p>Sotto Voce types through its own keyboard, which you add once in the Settings app.</p>
+<ol class="steps">
+  <li>Open <strong>Sotto Voce</strong> once and go through the short introduction. It asks for the microphone — dictation needs it.</li>
+  <li>Open the <strong>Settings</strong> app and go to <span class="path">General › Keyboard › Keyboards › Add New Keyboard…</span>, then choose <strong>Sotto Voce</strong>.</li>
+  <li>Back in the list of keyboards, tap <strong>Sotto Voce</strong> and turn on <strong>Allow Full Access</strong>. iOS shows a general warning about Full Access; the next section explains exactly what Sotto Voce uses it for.</li>
+</ol>
+
+<h2 id="full-access">Why Full Access is needed</h2>
+<div class="callout">
+  <p><strong>In short: iOS doesn’t let keyboards use the microphone, so the app listens and the keyboard types what it heard.</strong> Full Access is what lets the two share that text.</p>
+</div>
+<p>When you tap Start, the keyboard asks the Sotto Voce app to record and transcribe. The app turns your speech into text on your iPhone and passes the words back to the keyboard through a small shared storage area on the device (an “App Group”). iOS only lets a keyboard read and write that shared area once Full Access is on.</p>
+<p>That is all it is used for. The keyboard makes no network requests of any kind, and nothing you type or say is sent anywhere. There is no analytics, no crash-reporting service and no account. See the <a href="privacy.html">Privacy Policy</a> for the details.</p>
+
+<h2 id="dictate">Dictate in any app</h2>
+<ol class="steps">
+  <li>Tap into any text field — a message, an email, a note, a search box.</li>
+  <li>Tap the globe key (or touch and hold it and pick <strong>Sotto Voce</strong>) to switch to the Sotto Voce keyboard.</li>
+  <li>Tap <strong>Start</strong> and talk. The listening surface moves with your voice, and your words are typed as you speak.</li>
+  <li>Tap anywhere on the listening surface to stop; touch and hold it to move the cursor. <strong>Mute</strong> stops it hearing you until you tap again, and keeps the keyboard open.</li>
+</ol>
+<p>The first time you dictate in a session, Sotto Voce opens briefly to start the microphone — that’s an iOS requirement, not a choice. If you aren’t taken back automatically, tap the back link at the top-left of the screen to return to the app you were typing in. After that it keeps running, and Start works in place, with no more switching.</p>
+<p>You can change how the keyboard looks while it listens — Glow, Card, Wave or Ring — in the app under <span class="path">Settings › Dictation › Listening Look</span>.</p>
+
+<h2 id="troubleshooting">Troubleshooting</h2>
+
+<details class="faq" id="not-showing">
+  <summary>Sotto Voce isn’t in my list of keyboards</summary>
+  <div class="answer">
+    <p>Adding the app doesn’t add the keyboard by itself. Go to <span class="path">Settings › General › Keyboard › Keyboards › Add New Keyboard…</span> and choose Sotto Voce. If you’ve added it but the globe key skips it, check it’s still listed under Keyboards — removing and re-adding it is harmless.</p>
+  </div>
+</details>
+
+<details class="faq">
+  <summary>The keyboard says it needs Full Access, or Start does nothing</summary>
+  <div class="answer">
+    <p>Go to <span class="path">Settings › General › Keyboard › Keyboards › Sotto Voce</span> and make sure <strong>Allow Full Access</strong> is on. Without it the keyboard can’t receive the text the app transcribes. (<a href="#full-access">Why it’s needed</a>.)</p>
+    <p>Also check that Sotto Voce has microphone permission, in <span class="path">Settings › Apps › Sotto Voce</span>.</p>
+  </div>
+</details>
+
+<details class="faq">
+  <summary>Do I have to switch apps every time I dictate?</summary>
+  <div class="answer">
+    <p>Only once per session. The first time, Sotto Voce opens briefly to claim the microphone, which iOS requires. After that it stays running in the background, and Start begins and ends dictation in place, in whatever app you’re typing in.</p>
+  </div>
+</details>
+
+<details class="faq">
+  <summary>Does it work offline? What does the app download?</summary>
+  <div class="answer">
+    <p>Yes. The built-in speech recogniser (<strong>Standard</strong>) comes with iOS and needs no download. Some features use an open model that runs on your iPhone and is downloaded once — for example the optional <strong>Enhanced</strong> transcription model, the background-noise filter, and separating speakers in a recording. After that they work offline.</p>
+    <p>These downloads are one-way: the files come from Hugging Face, a static file host, and none of your audio or text is sent. It’s the only network request the app makes.</p>
+  </div>
+</details>
+
+<details class="faq">
+  <summary>A model download is stuck or failed</summary>
+  <div class="answer">
+    <p>Downloads need an internet connection only while they run. Check you’re online (Wi-Fi is best for the larger transcription model), then try again — the Enhanced model is downloaded from the <strong>Model</strong> screen in the app. Until a download is ready you can keep dictating with Standard, which needs no download.</p>
+  </div>
+</details>
+
+<details class="faq">
+  <summary>Which transcription model should I use?</summary>
+  <div class="answer">
+    <p><strong>Standard</strong> is the default: the speech recogniser built into your iPhone, with no download. <strong>Enhanced</strong> is an optional model that also runs on your device and is downloaded once. Pick between them on the Model screen in the app, which shows what each one offers, including the languages it understands.</p>
+  </div>
+</details>
+
+<details class="faq">
+  <summary>Summaries aren’t available</summary>
+  <div class="answer">
+    <p>Summaries of recordings are written on your iPhone by Apple’s on-device model, so they need an iPhone that supports Apple Intelligence, with Apple Intelligence turned on in <span class="path">Settings › Apple Intelligence &amp; Siri</span>. Recording and transcripts work without it.</p>
+  </div>
+</details>
+
+<details class="faq">
+  <summary>Is the transcript always right?</summary>
+  <div class="answer">
+    <p>Treat it as a first draft. Transcripts and summaries are made on your device and can contain mistakes — names, numbers and crosstalk are the usual trouble spots. Check anything important before you rely on it.</p>
+  </div>
+</details>
+
+<details class="faq">
+  <summary>Where are my recordings and dictations kept?</summary>
+  <div class="answer">
+    <p>In the app’s own storage on your iPhone, and nowhere else — there is no server copy. You can delete a recording in the app; deleting the app removes everything at once.</p>
+    <p>Recent dictations are off unless you turn them on. When they’re on, the app keeps the last few things you dictated, up to a number you choose, so you can find them again.</p>
+  </div>
+</details>
+
+<h2 id="pro">Free, Pro and purchases</h2>
+
+<details class="faq" id="free-limit">
+  <summary>How much can I dictate for free?</summary>
+  <div class="answer">
+    <p>Up to <strong>1,000 words a week</strong> through the keyboard, with no account. The allowance resets every week. Recording, transcribing and summarising audio inside the app aren’t counted against it.</p>
+  </div>
+</details>
+
+<details class="faq">
+  <summary>What does Pro add, and what does it cost?</summary>
+  <div class="answer">
+    <p>Pro removes the weekly word limit — everything else stays the same. It’s billed monthly, yearly (with the first 7 days free), or once for lifetime. Prices are shown in the app, in your local currency, before you buy, and purchases are charged to your Apple Account.</p>
+  </div>
+</details>
+
+<details class="faq">
+  <summary>I bought Pro but the app doesn’t show it (restore purchases)</summary>
+  <div class="answer">
+    <p>Open Sotto Voce, go to <strong>Settings</strong> and tap <strong>Restore Purchases</strong>. Make sure you’re signed in with the same Apple Account you bought Pro with. There’s no Sotto Voce account to sign in to — your purchase is tied to your Apple Account.</p>
+  </div>
+</details>
+
+<details class="faq">
+  <summary>How do I cancel or change my subscription?</summary>
+  <div class="answer">
+    <p>Subscriptions are managed by Apple. On your iPhone, open <span class="path">Settings</span>, tap your name, then <span class="path">Subscriptions</span>, and choose Sotto Voce. Cancel at least 24 hours before the renewal date to avoid being charged for the next period; you keep Pro until the end of the period you’ve paid for.</p>
+    <p>Refunds are handled by Apple too — request one at <a href="https://reportaproblem.apple.com">reportaproblem.apple.com</a>.</p>
+  </div>
+</details>
+
+<h2 id="contact">Contact</h2>
+<div class="contact-card">
+  <p>Bugs, requests, or anything the answers above don’t cover:</p>
+  <p><a class="email" href="mailto:daniel.li.work+support@gmail.com">daniel.li.work+support@gmail.com</a></p>
+</div>
+
+</div>
+</main>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <p>Sotto Voce: Private Dictation, for iPhone.</p>
+    <ul>
+      <li><a href="./">Home</a></li>
+      <li><a href="privacy.html">Privacy Policy</a></li>
+      <li><a href="https://www.apple.com/legal/internet-services/itunes/dev/stdeula/">Terms of Use</a></li>
+    </ul>
+  </div>
+</footer>
+</body>
+</html>

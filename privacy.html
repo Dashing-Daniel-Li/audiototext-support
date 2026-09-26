@@ -3,35 +3,48 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>AudioToText — Privacy Policy</title>
-<meta name="description" content="Privacy policy for AudioToText. All transcription and summarization run on-device; nothing you say or type is uploaded anywhere.">
-<meta name="theme-color" content="#5b4ff5" media="(prefers-color-scheme: light)">
-<meta name="theme-color" content="#120e21" media="(prefers-color-scheme: dark)">
-<link rel="icon" href="mark.png">
+<title>Sotto Voce Privacy Policy</title>
+<meta name="description" content="Privacy policy for Sotto Voce: Private Dictation. All transcription and summarization run on-device; nothing you say or type is uploaded anywhere.">
+<meta name="theme-color" content="#f7f4ee" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#16140f" media="(prefers-color-scheme: dark)">
+<link rel="icon" type="image/png" sizes="64x64" href="assets/icon-64.png">
+<link rel="apple-touch-icon" href="assets/icon-180.png">
 <link rel="stylesheet" href="style.css">
-<!-- Set before first paint so revealed content never flashes. -->
-<script>document.documentElement.classList.add('js');</script>
 </head>
 <body>
-<div class="progress" aria-hidden="true"></div>
-<div class="wrap">
+<a class="skip" href="#main">Skip to content</a>
 
-<header>
-  <img src="mark.png" alt="AudioToText app icon" width="108" height="108">
-  <h1>Privacy Policy</h1>
-  <p class="tagline">AudioToText for iPhone</p>
-  <p class="nav"><a href="index.html">Support</a></p>
+<header class="site-header">
+  <div class="wrap">
+    <a class="brand" href="./"><img src="assets/icon-64.png" alt="" width="32" height="32"><span>Sotto Voce</span></a>
+    <nav class="site-nav" aria-label="Site">
+      <ul>
+        <li><a href="support.html">Support</a></li>
+        <li><a href="privacy.html" aria-current="page">Privacy</a></li>
+        <li><a href="https://apps.apple.com/us/app/sotto-voce/id6808935928">App Store</a></li>
+      </ul>
+    </nav>
+  </div>
 </header>
 
-<nav class="toc reveal" aria-labelledby="toc-heading">
+<main id="main" class="wrap narrow">
+
+<div class="doc-hero">
+  <p class="eyebrow">Sotto Voce · Privacy Policy</p>
+  <h1>Privacy Policy</h1>
+  <p class="lede">Sotto Voce: Private Dictation, for iPhone. Sotto Voce was previously called AudioToText; this policy covers the same app.</p>
+</div>
+
+<nav class="toc" aria-labelledby="toc-heading">
   <h2 id="toc-heading">Contents</h2>
   <ol>
     <li><a href="#short">The short version</a></li>
     <li><a href="#processing">How transcription and summarization work</a></li>
     <li><a href="#fullaccess">Why the keyboard needs Full Access</a></li>
     <li><a href="#downloads">Model downloads</a></li>
-    <li><a href="#stored">What AudioToText stores</a></li>
-    <li><a href="#nothing">What we don't do</a></li>
+    <li><a href="#stored">What Sotto Voce stores</a></li>
+    <li><a href="#purchases">Purchases</a></li>
+    <li><a href="#nothing">What we don’t do</a></li>
     <li><a href="#children">Children</a></li>
     <li><a href="#rights">Your rights</a></li>
     <li><a href="#changes">Changes to this policy</a></li>
@@ -39,119 +52,147 @@
   </ol>
 </nav>
 
-<h2 id="short" class="reveal">The short version</h2>
+<div class="doc">
 
-<div class="card reveal">
-<p><strong>Everything you say or type in AudioToText stays on your
+<h2 id="short">The short version</h2>
+
+<div class="callout">
+<p><strong>Everything you say or type in Sotto Voce stays on your
 iPhone.</strong> Transcription and AI summarization both run entirely
 on-device. There are no accounts, no servers of ours, and no analytics —
-AudioToText has nothing to upload, because nothing it does leaves your
+Sotto Voce has nothing to upload, because nothing it does leaves your
 phone.</p>
-<p>The only network request the app ever makes on your behalf is
-downloading the files of an optional transcription model you chose to
-use — a one-way download of model weights, not your data. See
+<p>The only network request the app makes is downloading the files of an
+on-device model — a one-way download of model weights, not your data. See
 <a href="#downloads">Model downloads</a> below.</p>
 </div>
 
-<h2 id="processing" class="reveal">How transcription and summarization work</h2>
+<h2 id="processing">How transcription and summarization work</h2>
 
-<p class="reveal">AudioToText transcribes speech using either Apple's
-built-in, on-device Speech framework, or an optional NVIDIA Parakeet model
-running locally through Apple's CoreML — whichever you choose in the
-Model screen. Both run entirely on your device; neither sends audio or
-text anywhere.</p>
+<p>Sotto Voce transcribes speech using either Apple’s built-in, on-device
+speech recognition (“Standard”), or an optional NVIDIA Parakeet model
+running locally through Apple’s Core ML (“Enhanced”) — whichever you choose
+on the Model screen. Both run entirely on your device; neither sends audio
+or text anywhere. Background-noise filtering and separating the speakers in
+a recording also run on your device.</p>
 
-<p class="reveal">Meeting notes and summaries are generated entirely
-on-device using Apple's Foundation Models framework. No transcript,
-recording, or summary is ever sent to an external service, including
-Apple's own servers.</p>
+<p>Meeting notes and summaries are generated entirely on-device using
+Apple’s Foundation Models framework. No transcript, recording, or summary
+is ever sent to an external service, including Apple’s own servers.</p>
 
-<h2 id="fullaccess" class="reveal">Why the keyboard needs Full Access</h2>
+<h2 id="fullaccess">Why the keyboard needs Full Access</h2>
 
-<p class="reveal">iOS keyboard extensions cannot use the microphone
-directly. AudioToText's keyboard works around that by having the main app
-claim the microphone and hand transcribed text to the keyboard through a
-small piece of storage shared between them (an "App Group") — and iOS
-only allows a keyboard extension to read that shared storage once you
-grant Full Access.</p>
+<p>iOS keyboard extensions cannot use the microphone directly. Sotto Voce’s
+keyboard works around that by having the main app claim the microphone and
+hand transcribed text to the keyboard through a small piece of storage
+shared between them (an “App Group”) — and iOS only allows a keyboard
+extension to read that shared storage once you grant Full Access.</p>
 
-<div class="card reveal">
+<div class="callout">
 <p>Full Access is used <strong>solely</strong> for that local, on-device
 handoff: letting the keyboard know a dictation session is running, and
-reading back the words it produced. AudioToText does not use Full Access
-for network requests, analytics, or any purpose beyond this.</p>
+reading back the words it produced. The keyboard makes no network requests
+of any kind, and Sotto Voce does not use Full Access for analytics or any
+purpose beyond this.</p>
 </div>
 
-<h2 id="downloads" class="reveal">Model downloads</h2>
+<h2 id="downloads">Model downloads</h2>
 
-<p class="reveal">Apple's built-in Speech model ships with iOS and needs no
-download. If you choose to use an optional Parakeet model instead, the app
-downloads that model's weight files from Hugging Face's servers over the
-network. This is a one-way download of a file — no audio, transcript, or
-personal information is uploaded as part of it, and it only happens when
-you explicitly choose to download a model.</p>
+<p>Apple’s built-in speech recognition ships with iOS and needs no
+download. Some features instead use an open model that runs on your
+device — for example the optional Enhanced transcription model, the
+background-noise filter, and speaker separation for recordings. The first
+time you use one of these, the app downloads that model’s files from
+Hugging Face’s servers over the network.</p>
 
-<h2 id="stored" class="reveal">What AudioToText stores</h2>
+<p>This is a one-way download of files. No audio, transcript, typed text or
+personal information is uploaded as part of it, and nothing is sent back.
+Once a model is downloaded it works offline.</p>
 
-<p class="reveal">The app saves what it needs to do its job, and nothing
-else:</p>
+<h2 id="stored">What Sotto Voce stores</h2>
 
-<ul class="reveal">
-  <li>audio recordings you make, and their transcripts and summaries</li>
-  <li>downloaded transcription model files, if you chose to use one</li>
-  <li>your settings, such as which transcription model is selected</li>
+<p>The app saves what it needs to do its job, and nothing else:</p>
+
+<ul>
+  <li>audio recordings you make or import, and their transcripts and summaries</li>
+  <li>your recent dictations — only if you turn this on (it is off by
+      default), and only as many as you choose to keep</li>
+  <li>a count of how many words you have dictated, used to show your usage
+      and to apply the weekly free allowance — a number, not a copy of what
+      you said</li>
+  <li>downloaded model files</li>
+  <li>your settings, such as which transcription model and listening look
+      are selected</li>
+  <li>crash and hang reports that iOS provides to the app, which contain no
+      transcripts and no audio, and which leave your iPhone only if you
+      choose to share them with a problem report</li>
 </ul>
 
-<p class="reveal">All of it is written to a private container on your
-iPhone. It is not synced to iCloud, not backed up to any server of ours,
-and never transmitted. Nobody — including the developer — can see it.</p>
+<p>All of it is written to a private container on your iPhone. It is not
+synced to iCloud, not backed up to any server of ours, and never
+transmitted. Nobody — including the developer — can see it.</p>
 
-<p class="reveal">You can delete any recording from within the app.
-Deleting the app removes everything at once. There is no copy anywhere
-else to request the deletion of.</p>
+<p>You can delete any recording from within the app. Deleting the app
+removes everything at once. There is no copy anywhere else to request the
+deletion of.</p>
 
-<h2 id="nothing" class="reveal">What we don't do</h2>
+<h2 id="purchases">Purchases</h2>
 
-<ul class="reveal">
+<p>Sotto Voce Pro is bought through the App Store, and Apple processes the
+payment under its own terms and privacy policy. Sotto Voce never sees your
+payment details, and there is no Sotto Voce account to link a purchase to.</p>
+
+<h2 id="nothing">What we don’t do</h2>
+
+<ul>
   <li>No user accounts or sign-in.</li>
-  <li>No analytics, tracking, or advertising SDKs.</li>
-  <li>No third-party data sharing — there's no data collected to share.</li>
+  <li>No analytics, tracking, advertising or crash-reporting SDKs.</li>
+  <li>No third-party AI service — nothing you say or type is sent to one.</li>
+  <li>No third-party data sharing — there’s no data collected to share.</li>
   <li>No cloud storage of recordings, transcripts, or summaries.</li>
 </ul>
 
-<h2 id="children" class="reveal">Children</h2>
+<h2 id="children">Children</h2>
 
-<p class="reveal">AudioToText is a general-audience app and is not
-directed at children under 13. Because the app collects no data from any
-user, it does not knowingly collect data from children either.</p>
+<p>Sotto Voce is a general-audience app and is not directed at children
+under 13. Because the app collects no data from any user, it does not
+knowingly collect data from children either.</p>
 
-<h2 id="rights" class="reveal">Your rights</h2>
+<h2 id="rights">Your rights</h2>
 
-<p class="reveal">Under UK and EU data protection law you have rights of
-access, correction, erasure and objection over personal data held about
-you. For AudioToText, those rights are satisfied directly on your device:
-everything the app stores is visible in the app, can be edited or deleted
-there, and is destroyed when you delete the app. The developer holds no
-copy and so has nothing to disclose or erase.</p>
+<p>Under UK and EU data protection law you have rights of access,
+correction, erasure and objection over personal data held about you. For
+Sotto Voce, those rights are satisfied directly on your device: everything
+the app stores is visible in the app, can be edited or deleted there, and
+is destroyed when you delete the app. The developer holds no copy and so
+has nothing to disclose or erase.</p>
 
-<h2 id="changes" class="reveal">Changes to this policy</h2>
+<h2 id="changes">Changes to this policy</h2>
 
-<p class="reveal">If this policy changes it will be updated on this page
-and the date below will change with it. If a change ever materially
-affects how your information is handled, it will be described here rather
-than quietly amended.</p>
+<p>If this policy changes it will be updated on this page and the date
+below will change with it. If a change ever materially affects how your
+information is handled, it will be described here rather than quietly
+amended.</p>
 
-<h2 id="contact" class="reveal">Contact</h2>
+<h2 id="contact">Contact</h2>
 
-<p class="reveal">Questions about privacy, or anything else:
+<p>Questions about privacy, or anything else:
 <a href="mailto:daniel.li.work+support@gmail.com">daniel.li.work+support@gmail.com</a></p>
 
-<footer>
-  <p>Last updated 2 September 2026<br>
-  <a href="index.html">Support</a></p>
-</footer>
+<p class="fine">Last updated 26 September 2026</p>
 
 </div>
-<script src="site.js" defer></script>
+</main>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <p>Sotto Voce: Private Dictation, for iPhone.</p>
+    <ul>
+      <li><a href="./">Home</a></li>
+      <li><a href="support.html">Support</a></li>
+      <li><a href="https://www.apple.com/legal/internet-services/itunes/dev/stdeula/">Terms of Use</a></li>
+    </ul>
+  </div>
+</footer>
 </body>
 </html>

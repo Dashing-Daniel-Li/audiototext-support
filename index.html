@@ -3,113 +3,228 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>AudioToText — Support</title>
-<meta name="description" content="Support and help for AudioToText, an iPhone app for on-device dictation, transcription and AI meeting notes.">
-<meta name="theme-color" content="#5b4ff5" media="(prefers-color-scheme: light)">
-<meta name="theme-color" content="#120e21" media="(prefers-color-scheme: dark)">
-<link rel="icon" href="mark.png">
+<title>Sotto Voce: Private Dictation for iPhone</title>
+<meta name="description" content="Dictate anywhere you can type. Every word is transcribed on your iPhone. Nothing is uploaded, and no account is needed.">
+<meta name="theme-color" content="#f7f4ee" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#16140f" media="(prefers-color-scheme: dark)">
+<meta name="apple-itunes-app" content="app-id=6808935928">
+<meta property="og:title" content="Sotto Voce: Private Dictation">
+<meta property="og:description" content="Your voice, typed. On your phone, and nowhere else.">
+<meta property="og:type" content="website">
+<meta property="og:image" content="https://dashing-daniel-li.github.io/audiototext-support/assets/icon-512.png">
+<link rel="icon" type="image/png" sizes="64x64" href="assets/icon-64.png">
+<link rel="apple-touch-icon" href="assets/icon-180.png">
 <link rel="stylesheet" href="style.css">
-<!-- Set before first paint so revealed content never flashes. -->
-<script>document.documentElement.classList.add('js');</script>
 </head>
 <body>
-<div class="progress" aria-hidden="true"></div>
-<div class="wrap">
+<a class="skip" href="#main">Skip to content</a>
 
-<header>
-  <img src="mark.png" alt="AudioToText app icon" width="108" height="108">
-  <h1>AudioToText</h1>
-  <p class="tagline">On-device dictation, transcription and AI meeting notes.</p>
-  <p class="nav"><a href="privacy.html">Privacy Policy</a></p>
+<header class="site-header">
+  <div class="wrap">
+    <a class="brand" href="./"><img src="assets/icon-64.png" alt="" width="32" height="32"><span>Sotto Voce</span></a>
+    <nav class="site-nav" aria-label="Site">
+      <ul>
+        <li><a href="support.html">Support</a></li>
+        <li><a href="privacy.html">Privacy</a></li>
+        <li><a href="https://apps.apple.com/us/app/sotto-voce/id6808935928">App Store</a></li>
+      </ul>
+    </nav>
+  </div>
 </header>
 
-<h2 class="reveal">What it does</h2>
+<main id="main">
 
-<p class="reveal">AudioToText adds a custom keyboard that dictates into any
-app — Messages, Mail, WhatsApp, anywhere you type — using on-device speech
-recognition. Tap the mic, talk, and your words are typed for you as you
-speak.</p>
+<section class="hero" aria-labelledby="hero-title">
+  <div class="wrap">
+    <div>
+      <img class="hero-icon" src="assets/icon-256.png" srcset="assets/icon-256.png 1x, assets/icon-512.png 2x" alt="Sotto Voce app icon" width="88" height="88">
+      <p class="eyebrow">Sotto Voce · Private dictation for iPhone</p>
+      <h1 id="hero-title">Your voice, typed. <span class="accent">On your phone, and nowhere else.</span></h1>
+      <p class="lede">Dictate anywhere you can type — messages, notes, email, search. Every word is transcribed on your iPhone. Nothing is uploaded, and no account is needed.</p>
+      <div class="cta">
+        <a class="badge-link" href="https://apps.apple.com/us/app/sotto-voce/id6808935928">
+          <img src="assets/app-store-badge.svg" alt="Download Sotto Voce on the App Store" width="180" height="60">
+        </a>
+        <p class="fine">Free to try: 1,000 words a week.<br>Requires iPhone with iOS 26.</p>
+      </div>
+    </div>
+    <div>
+      <div class="phone">
+        <video id="demo" autoplay muted loop playsinline preload="auto" poster="assets/dictation-poster.jpg"
+               aria-label="Sotto Voce's keyboard listening in a chat, typing the words as they are spoken: Running five minutes late. Save me a seat, and the popcorn!">
+          <source src="assets/dictation-loop.mp4" type="video/mp4">
+          <img src="assets/dictation-poster.jpg" alt="Sotto Voce's keyboard listening in a chat" width="432" height="800">
+        </video>
+      </div>
+    </div>
+  </div>
+</section>
 
-<p class="reveal">It also records and transcribes standalone conversations
-or notes, then turns them into structured meeting notes — title, topics,
-decisions, and action items — generated entirely on-device.</p>
+<section class="section" aria-labelledby="anywhere-title">
+  <div class="wrap">
+    <div class="section-head">
+      <h2 id="anywhere-title">Speak, and it types where you already are.</h2>
+      <p>Your words appear in whatever you were already typing in — a message, an email, a note, a search box. No copying and pasting.</p>
+    </div>
+    <ul class="points points-grid">
+      <li><strong>Speak in any app</strong>It works everywhere the system keyboard does.</li>
+      <li><strong>Hears you over the room</strong>Background noise is stripped out before a word is transcribed.</li>
+      <li><strong>Recent dictations</strong>The last things you said, if you need them again.</li>
+      <li><strong>A keyboard that stays out of the way</strong>A full QWERTY that behaves the way iOS does, with the microphone where you expect it. Nothing to learn.</li>
+    </ul>
+  </div>
+</section>
 
-<h2 id="faq" class="reveal">Common questions</h2>
+<section class="section privacy-band" aria-labelledby="privacy-title">
+  <div class="wrap split reverse">
+    <div>
+      <h2 id="privacy-title">Why on-device matters.</h2>
+      <p class="lede">Dictation apps usually send your voice to a server. That is a recording of you in someone else’s data centre, attached to an account. Sotto Voce does the whole thing on the phone in your hand, so there is nothing to leak, subpoena, or sell.</p>
+      <ul class="privacy-grid">
+        <li class="pill"><div class="rule"></div><h3>On your phone</h3><p>Speech is turned into text on your iPhone. Summaries run on the device too.</p></li>
+        <li class="pill"><div class="rule"></div><h3>Nothing uploaded</h3><p>Your voice is never uploaded, never stored on a server, and never used to train anything.</p></li>
+        <li class="pill"><div class="rule"></div><h3>No account</h3><p>No sign-up, no email, no analytics, no tracking.</p></li>
+      </ul>
+      <p><strong>Works offline.</strong> The app’s only network request is a one-way download of on-device model files from Hugging Face. None of your audio or text goes with it, and nothing is sent back. <a href="privacy.html">Read the privacy policy</a>.</p>
+    </div>
+    <figure class="shot">
+      <picture>
+        <source srcset="assets/screenshot-2.webp" type="image/webp">
+        <img src="assets/screenshot-2.jpg" width="600" height="1304" loading="lazy"
+             alt="App Store screenshot: “Your voice never leaves your phone” — the app’s Private by Design screen: works offline, no accounts, runs on your phone.">
+      </picture>
+    </figure>
+  </div>
+</section>
 
-<details class="faq reveal">
-  <summary>Why does the keyboard need "Full Access"?</summary>
-  <div class="faq-panel"><div class="faq-body">
-    <p>iOS does not allow a keyboard extension to use the microphone
-    directly. AudioToText works around that by having the main app claim
-    the microphone and hand the transcribed text to the keyboard through a
-    small piece of storage shared between them — and iOS only allows a
-    keyboard to read that shared storage once Full Access is granted.</p>
-    <p>Full Access is used for that one purpose. It is not used for network
-    access, analytics, or anything else. See the
-    <a href="privacy.html">Privacy Policy</a> for the full explanation.</p>
-  </div></div>
-</details>
+<section class="section" aria-labelledby="looks-title">
+  <div class="wrap">
+    <div class="split">
+      <div class="section-head">
+        <h2 id="looks-title">Dictation you can watch.</h2>
+        <p>Sotto Voce shows you it is listening. A live surface moves with your voice as you speak, so you can see it caught the sentence without reading it back. Pick the look that suits you.</p>
+      </div>
+      <figure class="shot">
+        <picture>
+          <source srcset="assets/screenshot-3.webp" type="image/webp">
+          <img src="assets/screenshot-3.jpg" width="600" height="1304" loading="lazy"
+               alt="App Store screenshot: “Watch it listen. Pick your look.” — the keyboard’s four listening looks: Glow, Card, Wave and Ring.">
+        </picture>
+      </figure>
+    </div>
+    <ul class="looks">
+      <li class="look"><div class="swatch"></div><h3>Glow</h3><p>Bars on a soft glow. Muted turns the status, the timer and the bars red.</p></li>
+      <li class="look"><div class="swatch"></div><h3>Card</h3><p>A card with the status along the top and the words heard along the bottom.</p></li>
+      <li class="look"><div class="swatch"></div><h3>Wave</h3><p>One wave across the width on a wash of colour. Muted flattens it to a red line.</p></li>
+      <li class="look"><div class="swatch"></div><h3>Ring</h3><p>A round control holding the waveform. Muted fills the ring red.</p></li>
+    </ul>
+  </div>
+</section>
 
-<details class="faq reveal">
-  <summary>Do I have to switch apps every time I dictate?</summary>
-  <div class="faq-panel"><div class="faq-body">
-    <p>Only once per session. The first time you dictate, AudioToText opens
-    briefly to claim the microphone — that's an iOS requirement, not a
-    choice. After that it stays running in the background, and the keyboard's
-    mic button starts and stops listening in place, in whatever app you're
-    typing in, with no further switching.</p>
-  </div></div>
-</details>
+<section class="section section-alt" aria-labelledby="rec-title">
+  <div class="wrap">
+    <div class="section-head">
+      <h2 id="rec-title">Recordings, too.</h2>
+      <p>Record or import audio and get a transcript with speakers separated, plus a summary if you want one — a meeting to write up, a client call, a lecture, a long voice note. Summaries need Apple Intelligence.</p>
+    </div>
+    <div class="shots">
+      <figure class="shot">
+        <picture>
+          <source srcset="assets/screenshot-4.webp" type="image/webp">
+          <img src="assets/screenshot-4.jpg" width="600" height="1304" loading="lazy"
+               alt="App Store screenshot: “Every word, and who said it” — a transcript of a client call with each speaker labelled.">
+        </picture>
+      </figure>
+      <figure class="shot">
+        <picture>
+          <source srcset="assets/screenshot-6.webp" type="image/webp">
+          <img src="assets/screenshot-6.jpg" width="600" height="1304" loading="lazy"
+               alt="App Store screenshot: “Recordings, too, with summaries” — the Recordings tab listing a client call, a voice note and a lecture.">
+        </picture>
+      </figure>
+    </div>
+  </div>
+</section>
 
-<details class="faq reveal">
-  <summary>Does dictation work offline?</summary>
-  <div class="faq-panel"><div class="faq-body">
-    <p>Yes, once a model is ready. Apple's built-in Speech engine needs no
-    download at all. The optional NVIDIA Parakeet models are downloaded
-    once, then work fully offline from then on.</p>
-  </div></div>
-</details>
+<section class="section" aria-labelledby="plans-title">
+  <div class="wrap">
+    <div class="section-head">
+      <h2 id="plans-title">Free and Pro.</h2>
+      <p>Try it for free. If you dictate a lot, Pro removes the limit.</p>
+    </div>
+    <div class="plans">
+      <div class="plan">
+        <h3>Free</h3>
+        <p class="sub">No account, no card</p>
+        <ul>
+          <li>Dictate up to 1,000 words a week</li>
+          <li>Every listening look</li>
+          <li>Everything on-device, as always</li>
+        </ul>
+      </div>
+      <div class="plan plan-pro">
+        <h3>Sotto Voce Pro</h3>
+        <p class="sub">No weekly limit</p>
+        <ul>
+          <li>Billed monthly</li>
+          <li>Billed yearly — the first 7 days free</li>
+          <li>Or once, for lifetime</li>
+        </ul>
+      </div>
+    </div>
+    <p class="plans-note">Prices are shown in the app, in your currency, before you buy. Purchases are handled by Apple; subscriptions can be managed or cancelled in your Apple Account settings. <a href="support.html#pro">More about Pro</a>.</p>
+  </div>
+</section>
 
-<details class="faq reveal">
-  <summary>Which transcription model should I use?</summary>
-  <div class="faq-panel"><div class="faq-body">
-    <p>Apple's built-in engine is the default: no download, and it supports
-    every language your device does. The Parakeet models are optional,
-    English-only alternatives with different accuracy/speed trade-offs — pick
-    whichever fits how you use dictation, from the Model screen in the app.</p>
-  </div></div>
-</details>
+<section class="section section-alt" aria-labelledby="req-title">
+  <div class="wrap">
+    <div class="section-head">
+      <h2 id="req-title">What you need.</h2>
+    </div>
+    <ul class="req">
+      <li><strong>iPhone with iOS 26</strong>Sotto Voce is an iPhone app and needs iOS 26.</li>
+      <li><strong>Apple Intelligence</strong>Some features, such as summaries of recordings, need an iPhone with Apple Intelligence.</li>
+      <li><strong>Full Access, once</strong>The keyboard needs Full Access to receive the text the app transcribes. <a href="support.html#full-access">Here’s why</a>.</li>
+    </ul>
+  </div>
+</section>
 
-<details class="faq reveal">
-  <summary>Is my audio or text sent anywhere?</summary>
-  <div class="faq-panel"><div class="faq-body">
-    <p>No. Transcription and AI summarization both run entirely on your
-    device. See the <a href="privacy.html">Privacy Policy</a> for the full
-    picture, including the one place the app does use the network — downloading
-    an optional model's files, not your data.</p>
-  </div></div>
-</details>
+<section class="section closing" aria-labelledby="closing-title">
+  <div class="wrap narrow">
+    <img class="hero-icon" src="assets/icon-256.png" srcset="assets/icon-256.png 1x, assets/icon-512.png 2x" alt="" width="88" height="88">
+    <h2 id="closing-title">Said softly, meant for one listener.</h2>
+    <div class="cta">
+      <a class="badge-link" href="https://apps.apple.com/us/app/sotto-voce/id6808935928">
+        <img src="assets/app-store-badge.svg" alt="Download Sotto Voce on the App Store" width="180" height="60">
+      </a>
+    </div>
+    <p class="fine" style="margin-top:20px">Setting it up? See <a href="support.html">Support</a>.</p>
+  </div>
+</section>
 
-<details class="faq reveal">
-  <summary>Where do my recordings and notes go?</summary>
-  <div class="faq-panel"><div class="faq-body">
-    <p>They stay in the app's local storage on your iPhone. Deleting a
-    recording removes it; deleting the app removes everything at once. There
-    is no server copy anywhere.</p>
-  </div></div>
-</details>
+</main>
 
-<h2 class="reveal">Something else</h2>
-
-<p class="reveal">Bugs, requests, or anything the answers above don't cover:
-<a href="mailto:daniel.li.work+support@gmail.com">daniel.li.work+support@gmail.com</a></p>
-
-<footer>
-  <p>AudioToText for iPhone<br>
-  <a href="privacy.html">Privacy Policy</a></p>
+<footer class="site-footer">
+  <div class="wrap">
+    <p>Sotto Voce: Private Dictation, for iPhone.</p>
+    <ul>
+      <li><a href="support.html">Support</a></li>
+      <li><a href="privacy.html">Privacy Policy</a></li>
+      <li><a href="https://www.apple.com/legal/internet-services/itunes/dev/stdeula/">Terms of Use</a></li>
+      <li><a href="mailto:daniel.li.work+support@gmail.com">Contact</a></li>
+    </ul>
+  </div>
 </footer>
 
-</div>
-<script src="site.js" defer></script>
+<script>
+  // Honour Reduce Motion: show the still frame instead of the looping clip.
+  (function () {
+    var v = document.getElementById('demo');
+    if (v && window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+      v.removeAttribute('autoplay');
+      v.pause();
+    }
+  })();
+</script>
 </body>
 </html>

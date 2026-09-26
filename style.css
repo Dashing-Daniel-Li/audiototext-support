@@ -1,299 +1,387 @@
-/* AudioToText support site. Palette lifted from the app's DesignSystem.swift
-   (Brand.*) so the pages and the app are recognisably the same product. The
-   app is light-first with a derived dark variant; so is this. Structure
-   mirrors lockermate-support's site so sibling apps' support pages stay
-   consistent. */
-:root {
-  --ground: #ffffff;
-  --ground-2: #f5f2ff;
-  --surface: #ffffff;
-  --line: #e6e0fb;
-  --line-strong: #cabdf6;
-  --text: #1c1730;
-  --dim: #5c5478;
-  /* Brand.indigo restated at text contrast, not the app's raw indigo: on
-     these backgrounds the raw value is 3.3-3.6:1, under the 4.5:1 WCAG AA
-     needs. */
-  --faint: #7a72a0;
-  --accent: #5b4ff5;
-  --accent-2: #8b45f7;
-  --accent-text: #4a3fd1;
-  --tint: #f1edfe;
-  --shadow: rgba(58, 30, 122, 0.10);
-  --shadow-lift: rgba(58, 30, 122, 0.18);
+/* Sotto Voce — marketing, support and privacy pages.
+   Brand: warm paper ground, Baskerville-style serif headlines, system sans
+   body, Ocean palette (#1F70EB -> #21A0D6 -> #35C6B0) from the app.
+   No web fonts, no scripts, no third-party requests of any kind. */
 
-  /* Motion. Built-in CSS easings are too weak for UI; these are the
-     standard strong curves. */
-  --ease-out: cubic-bezier(0.23, 1, 0.32, 1);
-  --ease-in-out: cubic-bezier(0.77, 0, 0.175, 1);
-  --dur-hover: 160ms;
-  --dur-accordion: 240ms;
-  --dur-reveal: 420ms;
+:root {
+  color-scheme: light dark;
+
+  --paper: rgb(247, 244, 238);
+  --paper-2: #efeae0;
+  --surface: #fffdf9;
+  --ink: #1d1b17;
+  --ink-2: #4b463e;
+  --ink-3: #6b655b;
+  --line: #e3ddd0;
+  --line-strong: #cfc6b4;
+
+  --ocean-1: #1f70eb;
+  --ocean-2: #21a0d6;
+  --ocean-3: #35c6b0;
+  --ocean: linear-gradient(100deg, var(--ocean-1) 0%, var(--ocean-2) 55%, var(--ocean-3) 100%);
+  /* #1F70EB is 4.2:1 on the paper; text-sized links use a deeper step. */
+  --link: #1a5fcc;
+  --link-hover: #13479b;
+  --focus: #1f70eb;
+
+  --shadow: 0 1px 2px rgba(60, 45, 20, 0.06), 0 8px 24px rgba(60, 45, 20, 0.08);
+  --shadow-phone: 0 2px 6px rgba(40, 30, 10, 0.10), 0 24px 60px rgba(40, 30, 10, 0.16);
+
+  --serif: "Baskerville", "Baskerville Old Face", "Libre Baskerville", "Hoefler Text",
+           "Iowan Old Style", "Palatino Linotype", Palatino, Georgia, "Times New Roman", serif;
+  --sans: -apple-system, BlinkMacSystemFont, "SF Pro Text", system-ui, "Segoe UI", Roboto,
+          "Helvetica Neue", Arial, sans-serif;
+
+  --radius: 18px;
+  --wrap: 1080px;
+  --gutter: clamp(20px, 5vw, 40px);
 }
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --ground: #120e21;
-    --ground-2: #191330;
-    --surface: #1c1636;
-    --line: #322a54;
-    --line-strong: #493d78;
-    --text: #f1edff;
-    --dim: #bdb2e6;
-    --faint: #9384c4;
-    --accent: #a08bff;
-    --accent-2: #c896ff;
-    --accent-text: #c1adff;
-    --tint: #241d42;
-    --shadow: rgba(0, 0, 0, 0.35);
-    --shadow-lift: rgba(0, 0, 0, 0.5);
+    --paper: #16140f;
+    --paper-2: #1d1a14;
+    --surface: #221f18;
+    --ink: #f3efe6;
+    --ink-2: #cfc8ba;
+    --ink-3: #a79f90;
+    --line: #36312a;
+    --line-strong: #4a4439;
+    --link: #7cc0f5;
+    --link-hover: #a8d6fa;
+    --focus: #7cc0f5;
+    --shadow: 0 1px 2px rgba(0, 0, 0, 0.3), 0 8px 24px rgba(0, 0, 0, 0.35);
+    --shadow-phone: 0 2px 6px rgba(0, 0, 0, 0.4), 0 24px 60px rgba(0, 0, 0, 0.5);
   }
 }
 
-* { box-sizing: border-box; }
+*, *::before, *::after { box-sizing: border-box; }
 
-html { scroll-behavior: smooth; scroll-padding-top: 80px; }
-@media (prefers-reduced-motion: reduce) {
-  html { scroll-behavior: auto; }
+html { -webkit-text-size-adjust: 100%; scroll-padding-top: 24px; }
+@media (prefers-reduced-motion: no-preference) {
+  html { scroll-behavior: smooth; }
 }
 
 body {
   margin: 0;
-  padding: 0 24px 96px;
-  background: linear-gradient(180deg, var(--ground) 0%, var(--ground-2) 100%);
-  background-attachment: fixed;
-  color: var(--text);
-  font: 16px/1.65 -apple-system, BlinkMacSystemFont, "Segoe UI", Inter, sans-serif;
+  background: var(--paper);
+  color: var(--ink);
+  font: 17px/1.6 var(--sans);
   -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
 }
 
-.wrap { max-width: 680px; margin: 0 auto; }
+img, video, svg { display: block; max-width: 100%; height: auto; }
 
-/* ---------- Reading progress -------------------------------------------
-   Scroll-driven where the engine has scroll timelines — Chrome and Safari
-   both do — so it runs off the main thread with no scroll listener at all.
-   Firefox has none yet; there site.js drives the identical transform from a
-   passive, rAF-throttled listener instead.
+h1, h2, h3 {
+  font-family: var(--serif);
+  font-weight: 400;
+  color: var(--ink);
+  line-height: 1.12;
+  letter-spacing: -0.01em;
+  text-wrap: balance;
+  margin: 0;
+}
+h1 { font-size: clamp(40px, 6.4vw, 68px); }
+h2 { font-size: clamp(32px, 4.4vw, 46px); }
+h3 { font-size: 24px; line-height: 1.2; }
 
-   The animation is declared inside @supports on purpose. Left unguarded, an
-   engine without scroll timelines ignores `animation-timeline`, falls back to
-   the document timeline at the default 0s duration, and `both` fill paints a
-   permanently full bar. Guarded, it simply stays at scaleX(0) and paints
-   nothing until JS takes over. */
-.progress {
-  position: fixed;
-  inset: 0 0 auto 0;
-  height: 3px;
-  transform: scaleX(0);
-  transform-origin: 0 50%;
-  background: linear-gradient(90deg, var(--accent), var(--accent-2));
-  z-index: 20;
-}
-@supports (animation-timeline: scroll(root block)) {
-  .progress {
-    animation: progress-grow linear both;
-    animation-timeline: scroll(root block);
-  }
-}
-@keyframes progress-grow {
-  from { transform: scaleX(0); }
-  to { transform: scaleX(1); }
-}
-
-/* ---------- Header ------------------------------------------------------ */
-header { text-align: center; padding: 72px 0 8px; }
-header img {
-  width: 108px; height: 108px; border-radius: 26px;
-  box-shadow: 0 8px 26px var(--shadow);
-}
-
-h1 {
-  font-size: 30px; font-weight: 600; letter-spacing: -0.4px;
-  margin: 22px 0 6px;
-}
-.tagline { color: var(--dim); margin: 0 0 8px; }
-
-h2 {
-  font-size: 19px; font-weight: 600; margin: 44px 0 12px;
-  padding-top: 26px; border-top: 1px solid var(--line);
-  scroll-margin-top: 84px;
-}
-h3 { font-size: 16px; font-weight: 600; margin: 26px 0 6px; color: var(--text); }
-
-p, li { color: var(--dim); }
-p { margin: 0 0 14px; }
-ul { padding-left: 22px; margin: 0 0 14px; }
-li { margin-bottom: 7px; }
-strong { color: var(--text); font-weight: 600; }
+p { margin: 0 0 1em; color: var(--ink-2); text-wrap: pretty; }
+strong { color: var(--ink); font-weight: 600; }
 
 a {
-  color: var(--accent);
-  text-decoration: none;
-  border-bottom: 1px solid var(--line-strong);
-  transition: border-bottom-color var(--dur-hover) ease,
-              color var(--dur-hover) ease;
+  color: var(--link);
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 3px;
 }
-/* Hover deepens the link in light mode and lifts it in dark, rather than
-   washing it out: --accent-2 is a fill tint and only reaches 2.9:1 on white. */
-@media (hover: hover) and (pointer: fine) {
-  a:hover { border-bottom-color: var(--accent); color: var(--accent-text); }
-}
-a:focus-visible {
-  outline: 2px solid var(--accent);
+a:hover { color: var(--link-hover); }
+
+:focus-visible {
+  outline: 3px solid var(--focus);
   outline-offset: 3px;
-  border-radius: 3px;
+  border-radius: 6px;
 }
 
-.card {
-  background: var(--surface);
-  border: 1px solid var(--line);
-  border-radius: 16px;
-  padding: 18px 22px;
-  margin: 0 0 14px;
-  box-shadow: 0 2px 10px var(--shadow);
+.skip {
+  position: absolute; left: 12px; top: -60px;
+  background: var(--ink); color: var(--paper);
+  padding: 10px 16px; border-radius: 10px; z-index: 10;
+  text-decoration: none;
 }
-.card p:last-child { margin-bottom: 0; }
+.skip:focus { top: 12px; color: var(--paper); }
 
-.nav { text-align: center; margin: 18px 0 0; font-size: 15px; }
-.nav a { margin: 0 10px; }
+.wrap { max-width: var(--wrap); margin: 0 auto; padding: 0 var(--gutter); }
+.narrow { max-width: 760px; }
 
-footer {
-  margin-top: 56px; padding-top: 22px; border-top: 1px solid var(--line);
-  color: var(--dim); font-size: 14px; text-align: center;
+/* ---------- Site header ---------------------------------------------- */
+.site-header { border-bottom: 1px solid var(--line); }
+.site-header .wrap {
+  display: flex; align-items: center; justify-content: space-between;
+  gap: 16px; min-height: 64px;
 }
-
-code {
-  background: rgba(91, 79, 245, .10); padding: 2px 6px;
-  border-radius: 5px; font-size: 14px; color: var(--accent);
+.brand {
+  display: inline-flex; align-items: center; gap: 10px;
+  color: var(--ink); text-decoration: none;
+  font-family: var(--serif); font-size: 22px;
 }
-
-/* ---------- FAQ accordion ----------------------------------------------
-   Native <details>, so it opens and closes with no JS at all; the
-   transition is progressive enhancement on top. */
-.faq {
-  background: var(--surface);
-  border: 1px solid var(--line);
-  border-radius: 16px;
-  margin: 0 0 10px;
-  box-shadow: 0 2px 10px var(--shadow);
-  transition: box-shadow var(--dur-hover) ease,
-              border-color var(--dur-hover) ease;
+.brand:hover { color: var(--ink); }
+.brand img { width: 32px; height: 32px; border-radius: 8px; }
+.site-nav ul {
+  display: flex; gap: 4px; list-style: none; margin: 0; padding: 0;
 }
-@media (hover: hover) and (pointer: fine) {
-  .faq:hover { border-color: var(--line-strong); }
+.site-nav a {
+  display: block; padding: 8px 12px; border-radius: 10px;
+  color: var(--ink-2); text-decoration: none; font-size: 15px;
 }
-.faq[open] { box-shadow: 0 6px 20px var(--shadow-lift); }
+.site-nav a:hover { color: var(--ink); background: var(--paper-2); }
+.site-nav a[aria-current="page"] { color: var(--ink); font-weight: 600; }
 
-.faq summary {
-  cursor: pointer;
-  list-style: none;
-  padding: 16px 52px 16px 22px;
-  position: relative;
-  font-size: 16px;
-  font-weight: 600;
-  color: var(--text);
-  border-radius: 16px;
+/* ---------- Hero ----------------------------------------------------- */
+.hero { padding: clamp(40px, 7vw, 88px) 0 clamp(48px, 7vw, 96px); }
+.hero .wrap {
+  display: grid; grid-template-columns: 1.15fr 0.85fr;
+  gap: clamp(32px, 6vw, 72px); align-items: center;
 }
-.faq summary::-webkit-details-marker { display: none; }
-.faq summary:focus-visible {
-  outline: 2px solid var(--accent);
-  outline-offset: -2px;
+.hero-icon {
+  width: 88px; height: 88px; border-radius: 20px;
+  box-shadow: var(--shadow); margin-bottom: 28px;
 }
-
-/* Chevron, drawn in CSS so there's no asset to load. */
-.faq summary::after {
-  content: "";
-  position: absolute;
-  right: 22px; top: 50%;
-  width: 9px; height: 9px;
-  border-right: 2px solid var(--accent);
-  border-bottom: 2px solid var(--accent);
-  transform: translateY(-70%) rotate(45deg);
-  transform-origin: center;
-  transition: transform var(--dur-accordion) var(--ease-out);
+.eyebrow {
+  font-size: 14px; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase;
+  color: var(--ink-3); margin: 0 0 14px;
 }
-.faq[open] summary::after { transform: translateY(-25%) rotate(225deg); }
-
-/* The panel is a one-row grid animated 0fr -> 1fr. That interpolates in
-   Chrome, Safari and Firefox alike. The obvious alternative — transitioning
-   ::details-content's block-size to `auto` — additionally needs
-   `interpolate-size: allow-keywords`, which Safari and Firefox do not
-   support, so there the accordion silently snapped open with no transition.
-
-   The row is minmax(0, Nfr) rather than a bare Nfr on purpose. A bare `0fr`
-   means minmax(auto, 0fr), and that auto floor is the item's own padding —
-   measured at 18px in both Chrome and Safari, so every closed question kept a
-   visible strip. An explicit 0 minimum removes the floor; .faq-panel then
-   clips the padding that overflows it. */
-.faq-panel {
-  display: grid;
-  grid-template-rows: minmax(0, 0fr);
-  overflow: hidden;
-  transition: grid-template-rows var(--dur-accordion) var(--ease-out);
+.hero h1 { margin-bottom: 24px; }
+.hero h1 .accent {
+  background: var(--ocean);
+  -webkit-background-clip: text; background-clip: text;
+  color: transparent;
 }
-.faq[open] > .faq-panel { grid-template-rows: minmax(0, 1fr); }
-/* site.js sets these while it drives a transition, so the row has a value to
-   travel from. Same specificity as the [open] rule above, so order decides. */
-.faq.is-collapsed > .faq-panel { grid-template-rows: minmax(0, 0fr); }
-.faq.is-expanded > .faq-panel { grid-template-rows: minmax(0, 1fr); }
+@media (forced-colors: active) {
+  .hero h1 .accent { color: CanvasText; background: none; }
+}
+.lede { font-size: clamp(18px, 2vw, 20px); color: var(--ink-2); max-width: 34em; }
+.cta { display: flex; flex-wrap: wrap; align-items: center; gap: 12px 20px; margin-top: 28px; }
+.badge-link { display: inline-block; border-radius: 10px; }
+.badge-link img { width: 180px; height: 60px; }
+.fine { font-size: 14px; color: var(--ink-3); margin: 0; }
 
-.faq-body { min-height: 0; padding: 0 22px 18px; }
-.faq-body p { margin: 0 0 12px; }
-.faq-body p:last-child { margin-bottom: 0; }
+/* The clip has its device frame drawn in, on the store tiles' paper. */
+.phone {
+  margin: 0 auto; width: 100%; max-width: 340px;
+  border-radius: 34px; overflow: hidden;
+  background: rgb(247, 244, 238);
+  box-shadow: var(--shadow-phone);
+  aspect-ratio: 432 / 800;
+}
+.phone video, .phone img { width: 100%; height: 100%; object-fit: cover; }
 
-/* ---------- Table of contents ------------------------------------------ */
+/* ---------- Sections ------------------------------------------------- */
+.section { padding: clamp(56px, 8vw, 104px) 0; border-top: 1px solid var(--line); }
+.section-alt { background: var(--paper-2); }
+.section-head { max-width: 720px; margin-bottom: clamp(28px, 4vw, 48px); }
+.section-head h2 { margin-bottom: 18px; }
+.section-head p { font-size: 19px; }
+
+.split {
+  display: grid; grid-template-columns: 1fr 1fr;
+  gap: clamp(32px, 6vw, 80px); align-items: center;
+}
+.split.reverse > :first-child { order: 2; }
+.split h2 { margin-bottom: 18px; }
+
+.shot { margin: 0 auto; max-width: 320px; }
+.shot img {
+  border-radius: 22px; box-shadow: var(--shadow-phone);
+  background: var(--paper-2);
+}
+.shot figcaption { margin-top: 14px; text-align: center; font-size: 14px; color: var(--ink-3); }
+.shots { display: grid; grid-template-columns: 1fr 1fr; gap: clamp(16px, 3vw, 32px); }
+
+.points { list-style: none; margin: 0; padding: 0; display: grid; gap: 22px; }
+.points li { padding-left: 22px; position: relative; color: var(--ink-2); }
+.points li::before {
+  content: ""; position: absolute; left: 0; top: 0.55em;
+  width: 8px; height: 8px; border-radius: 50%; background: var(--ocean);
+}
+.points strong { display: block; font-size: 18px; margin-bottom: 2px; }
+.points-grid { grid-template-columns: 1fr 1fr; gap: 28px 48px; max-width: 900px; }
+
+/* Privacy band — dark in both schemes, like the store's privacy tile. */
+.privacy-band { background: #121a24; border-top: 0; }
+.privacy-band h2, .privacy-band h3, .privacy-band strong { color: #ffffff; }
+.privacy-band p, .privacy-band li { color: #c6d2de; }
+.privacy-band a { color: #8fcaf7; }
+.privacy-band a:hover { color: #bfe0fb; }
+.privacy-band :focus-visible { outline-color: #8fcaf7; }
+.privacy-grid {
+  display: grid; grid-template-columns: 1fr; gap: 12px; margin: 0 0 28px;
+  list-style: none; padding: 0;
+}
+.pill {
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  background: rgba(255, 255, 255, 0.04);
+  border-radius: 14px; padding: 16px 20px 16px 22px;
+  position: relative; overflow: hidden;
+}
+.pill h3 { font-size: 22px; margin-bottom: 4px; }
+.pill p { margin: 0; font-size: 16px; }
+.pill .rule { position: absolute; left: 0; top: 0; bottom: 0; width: 4px; background: linear-gradient(180deg, var(--ocean-1), var(--ocean-3)); }
+
+/* Listening looks */
+.looks {
+  display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px;
+  list-style: none; padding: 0; margin: 32px 0 0;
+}
+.look {
+  background: var(--surface); border: 1px solid var(--line);
+  border-radius: var(--radius); padding: 20px; box-shadow: var(--shadow);
+}
+.look h3 { font-size: 26px; margin-bottom: 6px; }
+.look p { margin: 0; font-size: 15px; }
+.look .swatch { height: 6px; border-radius: 3px; background: var(--ocean); margin-bottom: 16px; }
+
+/* Plans */
+.plans { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+.plan {
+  background: var(--surface); border: 1px solid var(--line);
+  border-radius: var(--radius); padding: 28px; box-shadow: var(--shadow);
+}
+.plan h3 { font-size: 30px; margin-bottom: 4px; }
+.plan .sub { color: var(--ink-3); font-size: 15px; margin-bottom: 18px; }
+.plan ul { margin: 0; padding-left: 20px; color: var(--ink-2); }
+.plan li { margin-bottom: 8px; }
+.plan-pro { position: relative; border-color: transparent; }
+.plan-pro::before {
+  content: ""; position: absolute; inset: 0; border-radius: inherit; padding: 2px;
+  background: var(--ocean);
+  -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+  -webkit-mask-composite: xor; mask-composite: exclude;
+  pointer-events: none;
+}
+.plans-note { margin-top: 20px; font-size: 15px; color: var(--ink-3); }
+
+.req {
+  display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px;
+  list-style: none; padding: 0; margin: 0;
+}
+.req li { border-top: 2px solid var(--ink); padding-top: 14px; color: var(--ink-2); }
+.req strong { display: block; font-family: var(--serif); font-weight: 400; font-size: 24px; margin-bottom: 4px; }
+
+.closing { text-align: center; }
+.closing .hero-icon { margin: 0 auto 24px; }
+.closing .cta { justify-content: center; }
+.closing h2 { margin-bottom: 12px; }
+
+/* ---------- Document pages (support, privacy) ------------------------ */
+.doc-hero { padding: clamp(40px, 6vw, 72px) 0 8px; }
+.doc-hero h1 { font-size: clamp(38px, 5.4vw, 56px); margin-bottom: 16px; }
+.doc-hero .lede { margin-bottom: 0; }
+
+.doc { padding-bottom: 32px; }
+.doc h2 {
+  font-size: clamp(28px, 3.4vw, 36px);
+  margin: 56px 0 16px; padding-top: 32px; border-top: 1px solid var(--line);
+}
+.doc h3 { font-size: 22px; margin: 28px 0 10px; }
+.doc ul, .doc ol { color: var(--ink-2); padding-left: 24px; margin: 0 0 1em; }
+.doc li { margin-bottom: 8px; }
+
 .toc {
-  background: var(--surface);
-  border: 1px solid var(--line);
-  border-radius: 16px;
-  padding: 16px 22px;
-  margin: 32px 0 0;
-  box-shadow: 0 2px 10px var(--shadow);
+  background: var(--surface); border: 1px solid var(--line);
+  border-radius: var(--radius); padding: 20px 24px; margin-top: 32px;
 }
 .toc h2 {
-  border: 0; padding: 0; margin: 0 0 10px;
-  font-size: 12px; letter-spacing: 1.4px; text-transform: uppercase;
-  color: var(--dim);
+  font-family: var(--sans); font-size: 13px; font-weight: 600; letter-spacing: 0.08em;
+  text-transform: uppercase; color: var(--ink-3);
+  margin: 0 0 10px; padding: 0; border: 0;
 }
-.toc ol { margin: 0; padding-left: 20px; }
-.toc li { margin-bottom: 5px; }
-.toc a {
-  border-bottom: 0;
-  color: var(--dim);
-  transition: color var(--dur-hover) ease;
-}
-@media (hover: hover) and (pointer: fine) {
-  .toc a:hover { color: var(--accent); }
-}
-.toc a[aria-current="true"] { color: var(--accent); font-weight: 600; }
+.toc ol { margin: 0; columns: 2; column-gap: 32px; }
+.toc li { break-inside: avoid; margin-bottom: 6px; }
 
-/* ---------- Scroll reveal ----------------------------------------------
-   Only applied when JS is running, so the pages are fully readable with
-   scripting off — which matters for a legal document. */
-.js .reveal {
-  opacity: 0;
-  transform: translateY(10px);
-  transition: opacity var(--dur-reveal) var(--ease-out),
-              transform var(--dur-reveal) var(--ease-out);
-  transition-delay: calc(var(--reveal-i, 0) * 55ms);
+.callout {
+  background: var(--surface); border: 1px solid var(--line);
+  border-left: 4px solid var(--ocean-2);
+  border-radius: 14px; padding: 18px 22px; margin: 0 0 1.2em;
+  box-shadow: var(--shadow);
 }
-.js .reveal.is-visible {
-  opacity: 1;
-  transform: none;
-}
+.callout p:last-child { margin-bottom: 0; }
 
-@media (prefers-reduced-motion: reduce) {
-  /* Keep the fade — it still signals arrival — but drop the movement. */
-  .js .reveal { transform: none; transition: opacity 200ms ease; }
-  .faq summary::after,
-  .faq-panel { transition: none; }
-  .progress { display: none; }
+.steps { counter-reset: step; list-style: none; padding: 0 !important; margin: 0 0 1.2em; }
+.steps > li {
+  counter-increment: step; position: relative;
+  padding: 3px 0 6px 48px; margin: 0 0 10px;
 }
+.steps > li::before {
+  content: counter(step);
+  position: absolute; left: 0; top: 0;
+  width: 32px; height: 32px; border-radius: 50%;
+  display: grid; place-items: center;
+  background: var(--ocean-1); color: #fff; font-weight: 700; font-size: 15px;
+}
+.path { font-weight: 600; color: var(--ink); }
 
-@media (max-width: 520px) {
-  header { padding-top: 48px; }
-  h1 { font-size: 25px; }
-  .faq summary { padding: 15px 46px 15px 18px; font-size: 15.5px; }
-  .faq-body { padding: 0 18px 16px; }
-  .toc { padding: 14px 18px; }
+/* FAQ — native <details>, works with no script at all. */
+.faq {
+  background: var(--surface); border: 1px solid var(--line);
+  border-radius: 14px; margin: 0 0 10px;
+}
+.faq[open] { box-shadow: var(--shadow); }
+.faq summary {
+  cursor: pointer; list-style: none; position: relative;
+  padding: 16px 52px 16px 20px;
+  font-weight: 600; color: var(--ink); border-radius: 14px;
+}
+.faq summary::-webkit-details-marker { display: none; }
+.faq summary:focus-visible { outline-offset: -3px; }
+.faq summary::after {
+  content: ""; position: absolute; right: 22px; top: 50%;
+  width: 9px; height: 9px;
+  border-right: 2px solid var(--ink-3); border-bottom: 2px solid var(--ink-3);
+  transform: translateY(-70%) rotate(45deg);
+}
+.faq[open] summary::after { transform: translateY(-25%) rotate(225deg); }
+@media (prefers-reduced-motion: no-preference) {
+  .faq summary::after { transition: transform 200ms cubic-bezier(0.23, 1, 0.32, 1); }
+}
+.faq .answer { padding: 0 20px 16px; }
+.faq .answer > :last-child { margin-bottom: 0; }
+
+.contact-card {
+  background: var(--surface); border: 1px solid var(--line);
+  border-radius: var(--radius); padding: 24px 26px; box-shadow: var(--shadow);
+}
+.contact-card p:last-child { margin-bottom: 0; }
+.email { font-size: 19px; font-weight: 600; overflow-wrap: anywhere; }
+
+/* ---------- Footer --------------------------------------------------- */
+.site-footer { border-top: 1px solid var(--line); padding: 36px 0 56px; }
+.site-footer .wrap {
+  display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 16px;
+}
+.site-footer p { margin: 0; font-size: 14px; color: var(--ink-3); }
+.site-footer ul { display: flex; flex-wrap: wrap; gap: 6px 18px; list-style: none; margin: 0; padding: 0; font-size: 14px; }
+
+/* ---------- Responsive ----------------------------------------------- */
+@media (max-width: 900px) {
+  .hero .wrap, .split { grid-template-columns: 1fr; }
+  .split.reverse > :first-child { order: 0; }
+  .looks { grid-template-columns: 1fr 1fr; }
+  .req { grid-template-columns: 1fr; }
+  .phone { max-width: 300px; }
+}
+@media (max-width: 640px) {
+  body { font-size: 16px; }
+  .site-header .wrap { min-height: 56px; }
+  .brand span { display: none; }
+  .site-nav a { padding: 8px 9px; font-size: 14px; }
+  .hero-icon { width: 72px; height: 72px; border-radius: 16px; margin-bottom: 22px; }
+  .plans, .points-grid { grid-template-columns: 1fr; }
+  .toc ol { columns: 1; }
+  .section-head p { font-size: 17px; }
+  .shots { gap: 12px; }
+  .shot img { border-radius: 14px; }
+}
+@media (max-width: 420px) {
+  .looks { grid-template-columns: 1fr; }
 }
