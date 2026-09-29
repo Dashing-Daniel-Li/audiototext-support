@@ -1,8 +1,9 @@
 # Sotto Voce
 
-> Sotto Voce is a private dictation keyboard and speech-to-text app for iPhone, made by Daniel Li. Speech is transcribed on the iPhone itself: audio is never uploaded, it works offline once its speech models have downloaded, and there is no account. It types into any app. Free for 1,000 words a week; Sotto Voce Pro removes the limit. Requires iOS 26. English.
+> Sotto Voce is a private dictation keyboard and speech-to-text app for iPhone, made by Daniel Li. Speech is transcribed on the iPhone itself, by Apple's on-device recogniser or NVIDIA Parakeet through Core ML: audio is never uploaded, it works offline once its speech models have downloaded, and there is no account. It types into any app. Free for 1,000 words a week; Sotto Voce Pro removes the limit for £2.99 a month, £19.99 a year or £74.99 once ($2.99, $19.99 or $79.99 in the US). Requires iOS 26. English.
 
-- [Homepage](https://sottovoce.uk/): what it does, privacy, plans and an FAQ
+- [Homepage](https://sottovoce.uk/): what it does, privacy, the four listening looks, pricing and an FAQ
+- [Sotto Voce vs Wispr Flow](https://sottovoce.uk/vs-wispr-flow.html): a sourced side-by-side, including where Wispr Flow is the better choice
 - [Support](https://sottovoce.uk/support.html): setting up the keyboard, Full Access, Pro
 - [Privacy policy](https://sottovoce.uk/privacy.html)
 - [App Store](https://apps.apple.com/us/app/sotto-voce/id6808935928)
