@@ -518,11 +518,38 @@ p { margin: 0; text-wrap: pretty; }
 
 /* ---------- Anywhere band ---------- */
 
-.anywhere { padding-block: 34px; border-block: 1px solid var(--line); background: var(--ink-1); }
-.anywhere .wrap { display: flex; flex-wrap: wrap; align-items: baseline; justify-content: center; gap: 10px 22px; text-align: center; }
-.anywhere .label { font: 600 0.75rem/1 var(--sans); letter-spacing: 0.14em; text-transform: uppercase; color: var(--text-3); }
-.anywhere .apps { font-family: var(--serif); font-style: italic; font-size: clamp(1.15rem, 2.2vw, 1.5rem); color: var(--text-2); }
-.anywhere .apps span { color: var(--text-3); margin-inline: 0.1em; font-style: normal; }
+.anywhere { padding-block: 40px 34px; border-block: 1px solid var(--line); background: var(--ink-1); display: grid; gap: 22px; }
+.anywhere .label {
+  font: 600 0.75rem/1 var(--sans);
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--text-3);
+  text-align: center;
+}
+.marquee {
+  overflow: hidden;
+  -webkit-mask-image: linear-gradient(90deg, transparent, #000 10%, #000 90%, transparent);
+  mask-image: linear-gradient(90deg, transparent, #000 10%, #000 90%, transparent);
+}
+.marquee-inner { display: flex; width: max-content; animation: marquee 48s linear infinite; }
+.marquee:hover .marquee-inner { animation-play-state: paused; }
+@keyframes marquee { to { transform: translateX(-50%); } }
+.marquee-set { list-style: none; display: flex; gap: 30px; margin: 0; padding: 0 15px; }
+.marquee-set li { display: grid; justify-items: center; gap: 9px; width: 72px; }
+.marquee-set img {
+  width: 56px;
+  height: 56px;
+  border-radius: 13px;
+  box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.08), 0 10px 24px -12px rgba(0, 0, 0, 0.9);
+}
+.marquee-set span { font-size: 0.74rem; color: var(--text-3); white-space: nowrap; }
+.anywhere-note { text-align: center; font-family: var(--serif); font-style: italic; font-size: 1.05rem; color: var(--text-2); }
+@media (prefers-reduced-motion: reduce) {
+  .marquee { -webkit-mask-image: none; mask-image: none; }
+  .marquee-inner { width: auto; justify-content: center; }
+  .marquee-set { flex-wrap: wrap; justify-content: center; row-gap: 18px; }
+  .marquee-set[aria-hidden="true"] { display: none; }
+}
 
 /* ---------- How it works ---------- */
 
