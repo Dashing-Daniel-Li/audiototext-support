@@ -15,7 +15,7 @@
 <link rel="icon" type="image/png" sizes="64x64" href="assets/icon-64.png">
 <link rel="apple-touch-icon" href="assets/icon-180.png">
 <link rel="preload" href="assets/fonts/baskervville-latin.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="style.css?v=4">
 </head>
 <body>
 <a class="skip" href="#main">Skip to content</a>
@@ -24,13 +24,14 @@
   <div class="wrap">
     <a class="brand" href="./"><img src="assets/icon-64.png" alt="" width="32" height="32"><span>Sotto Voce</span></a>
     <nav class="site-nav" aria-label="Site">
-      <ul>
-        <li class="hide-sm"><a href="./#how">How it works</a></li>
-        <li class="hide-sm"><a href="privacy.html" aria-current="page">Privacy</a></li>
-        <li class="hide-sm"><a href="vs-wispr-flow.html">Compare</a></li>
-        <li class="hide-xs"><a href="support.html">Support</a></li>
-        <li><a class="get" href="https://apps.apple.com/app/sotto-voce/id6808935928">Get the app</a></li>
+      <ul class="nav-links" id="site-menu">
+        <li><a href="./#how">How it works</a></li>
+        <li><a href="privacy.html" aria-current="page">Privacy</a></li>
+        <li><a href="vs-wispr-flow.html">Compare</a></li>
+        <li><a href="support.html">Support</a></li>
       </ul>
+      <a class="get" href="https://apps.apple.com/app/sotto-voce/id6808935928">Get the app</a>
+      <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="site-menu" aria-label="Menu"><span></span><span></span></button>
     </nav>
   </div>
 </header>
@@ -205,5 +206,6 @@ amended.</p>
     <p class="copy"><span>© 2026 Daniel Li. Private dictation for iPhone.</span><span>This site uses no cookies, no analytics and no third-party requests.</span></p>
   </div>
 </footer>
+<script src="assets/nav.js" defer></script>
 </body>
 </html>
