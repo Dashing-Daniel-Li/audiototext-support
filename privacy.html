@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Sotto Voce Privacy Policy</title>
-<meta name="description" content="Privacy policy for Sotto Voce: Private Dictation. All transcription and summarization run on-device; nothing you say or type is uploaded anywhere.">
+<meta name="description" content="Privacy policy for Sotto Voce: Private Dictation. Speech is turned into text on your iPhone; nothing you say or type is collected or uploaded.">
 <link rel="canonical" href="https://sottovoce.uk/privacy.html">
 <meta name="theme-color" content="#060a13">
 <meta property="og:title" content="Sotto Voce Privacy Policy">
@@ -15,7 +15,7 @@
 <link rel="icon" type="image/png" sizes="64x64" href="assets/icon-64.png">
 <link rel="apple-touch-icon" href="assets/icon-180.png">
 <link rel="preload" href="assets/fonts/baskervville-latin.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="stylesheet" href="style.css?v=4">
+<link rel="stylesheet" href="style.css?v=5">
 </head>
 <body>
 <a class="skip" href="#main">Skip to content</a>
@@ -48,7 +48,8 @@
   <h2 id="toc-heading">Contents</h2>
   <ol>
     <li><a href="#short">The short version</a></li>
-    <li><a href="#processing">How transcription and summarization work</a></li>
+    <li><a href="#processing">How dictation works</a></li>
+    <li><a href="#voice">Your voice profile</a></li>
     <li><a href="#fullaccess">Why the keyboard needs Full Access</a></li>
     <li><a href="#downloads">Model downloads</a></li>
     <li><a href="#stored">What Sotto Voce stores</a></li>
@@ -67,83 +68,110 @@
 
 <div class="callout">
 <p><strong>Everything you say or type in Sotto Voce stays on your
-iPhone.</strong> Transcription and AI summarization both run entirely
-on-device. There are no accounts, no servers of ours, and no analytics —
-Sotto Voce has nothing to upload, because nothing it does leaves your
-phone.</p>
-<p>The only network request the app makes is downloading the files of an
-on-device model — a one-way download of model weights, not your data. See
+iPhone.</strong> Speech is turned into text on the device, and no audio is
+saved. There are no accounts, no servers of ours, and no analytics.
+Sotto Voce collects no data at all, which is why its App Store privacy
+label reads “Data Not Collected”.</p>
+<p>The only network requests the app makes are one-way downloads of
+on-device model files, not your data. See
 <a href="#downloads">Model downloads</a> below.</p>
 </div>
 
-<h2 id="processing">How transcription and summarization work</h2>
+<h2 id="processing">How dictation works</h2>
 
-<p>Sotto Voce transcribes speech using either Apple’s built-in, on-device
-speech recognition (“Standard”), or an optional NVIDIA Parakeet model
-running locally through Apple’s Core ML (“Enhanced”) — whichever you choose
-on the Model screen. Both run entirely on your device; neither sends audio
-or text anywhere. Background-noise filtering and separating the speakers in
-a recording also run on your device.</p>
+<p>Sotto Voce turns speech into text with Apple’s speech recognition,
+running on your device. Before your speech reaches it, two small models,
+also on your device, check whether someone is speaking and whether it is
+you, so that other people talking nearby are left out. None of this sends
+audio or text anywhere, including to Apple’s servers.</p>
 
-<p>Meeting notes and summaries are generated entirely on-device using
-Apple’s Foundation Models framework. No transcript, recording, or summary
-is ever sent to an external service, including Apple’s own servers.</p>
+<p>Audio is processed as you speak and then discarded. Sotto Voce does not
+save recordings.</p>
+
+<p>Earlier versions of the app could record and import audio, and make
+transcripts and summaries of it. That feature has been removed. If you
+used it, those recordings, transcripts and summaries are deleted from your
+iPhone the first time you open the current version.</p>
+
+<h2 id="voice">Your voice profile</h2>
+
+<p>To leave out other people’s voices, Sotto Voce learns what your voice
+sounds like. During setup you read one sentence out loud, and the app
+turns it into a voice profile (sometimes called a voiceprint): a short
+list of numbers describing the sound of your voice. It is not a recording
+of what you said. As you dictate, the profile is refined from your own
+speech.</p>
+
+<p>The voice profile is worked out on your iPhone, kept in the app’s own
+storage there, and never uploaded or shared. It is used for one thing
+only: telling your voice apart from other voices while you dictate.
+<strong>Relearn my voice</strong> in the app’s Settings replaces it, and
+deleting the app removes it.</p>
 
 <h2 id="fullaccess">Why the keyboard needs Full Access</h2>
 
 <p>iOS keyboard extensions cannot use the microphone directly. Sotto Voce’s
 keyboard works around that by having the main app claim the microphone and
 hand transcribed text to the keyboard through a small piece of storage
-shared between them (an “App Group”) — and iOS only allows a keyboard
+shared between them (an “App Group”), and iOS only allows a keyboard
 extension to read that shared storage once you grant Full Access.</p>
 
 <div class="callout">
 <p>Full Access is used <strong>solely</strong> for that local, on-device
-handoff: letting the keyboard know a dictation session is running, and
-reading back the words it produced. The keyboard makes no network requests
-of any kind, and Sotto Voce does not use Full Access for analytics or any
-purpose beyond this.</p>
+sharing between the keyboard and the app: letting the keyboard know a
+dictation session is running, reading back the words it produced, and
+remembering keyboard preferences such as your recently used emoji. The
+keyboard makes no network requests of any kind, and Sotto Voce does not
+use Full Access for analytics or any purpose beyond this.</p>
 </div>
 
 <h2 id="downloads">Model downloads</h2>
 
-<p>Apple’s built-in speech recognition ships with iOS and needs no
-download. Some features instead use an open model that runs on your
-device — for example the optional Enhanced transcription model, the
-background-noise filter, and speaker separation for recordings. The first
-time you use one of these, the app downloads that model’s files from
-Hugging Face’s servers over the network.</p>
+<p>Two small open models run on your device: one that notices when someone
+is speaking, and one that recognises your voice. The first time they are
+needed, the app downloads their files from Hugging Face’s servers over the
+network. Separately, if your iPhone does not already have Apple’s speech
+recognition files for your language, iOS downloads them from Apple.</p>
 
-<p>This is a one-way download of files. No audio, transcript, typed text or
-personal information is uploaded as part of it, and nothing is sent back.
-Once a model is downloaded it works offline.</p>
+<p>These are one-way downloads of files. No audio, dictated or typed text,
+voice profile or personal information is uploaded as part of them, and
+nothing is sent back. Once the files are on your iPhone, dictation works
+offline.</p>
 
 <h2 id="stored">What Sotto Voce stores</h2>
 
 <p>The app saves what it needs to do its job, and nothing else:</p>
 
 <ul>
-  <li>audio recordings you make or import, and their transcripts and summaries</li>
-  <li>your recent dictations — only if you turn this on (it is off by
-      default), and only as many as you choose to keep</li>
+  <li>your voice profile, described <a href="#voice">above</a></li>
+  <li>your recent dictations, while <strong>Keep recent dictations</strong>
+      is on. It is on unless you turn it off, and keeps your last 10, so
+      you can find a dictation again. Turning it off deletes them.</li>
   <li>a count of how many words you have dictated, used to show your usage
-      and to apply the weekly free allowance — a number, not a copy of what
+      and to apply the weekly free allowance: a number, not a copy of what
       you said</li>
   <li>downloaded model files</li>
-  <li>your settings, such as which transcription model and listening look
-      are selected</li>
+  <li>your settings, and keyboard preferences such as recently used
+      emoji</li>
   <li>crash and hang reports that iOS provides to the app, which contain no
-      transcripts and no audio, and which leave your iPhone only if you
-      choose to share them with a problem report</li>
+      audio and no text, and which stay on your iPhone. (Separately, if you
+      have chosen in your iPhone’s settings to share analytics with app
+      developers, Apple may pass crash reports on under its own privacy
+      policy.)</li>
 </ul>
 
-<p>All of it is written to a private container on your iPhone. It is not
-synced to iCloud, not backed up to any server of ours, and never
-transmitted. Nobody — including the developer — can see it.</p>
+<p>No audio recordings are stored.</p>
 
-<p>You can delete any recording from within the app. Deleting the app
-removes everything at once. There is no copy anywhere else to request the
-deletion of.</p>
+<p>All of it is written to private storage on your iPhone. It is not
+uploaded to any server of ours, and never transmitted to anyone. Nobody,
+including the developer, can see it. Recent dictations are left out of
+iPhone backups; the rest is small app data that iOS may include in a
+backup you make yourself, to iCloud or a computer, under your own Apple
+Account.</p>
+
+<p>You can clear recent dictations, or relearn your voice, from within the
+app. Deleting the app removes everything at once. There is no copy
+anywhere else to request the deletion of.</p>
 
 <h2 id="purchases">Purchases</h2>
 
@@ -156,9 +184,10 @@ payment details, and there is no Sotto Voce account to link a purchase to.</p>
 <ul>
   <li>No user accounts or sign-in.</li>
   <li>No analytics, tracking, advertising or crash-reporting SDKs.</li>
-  <li>No third-party AI service — nothing you say or type is sent to one.</li>
-  <li>No third-party data sharing — there’s no data collected to share.</li>
-  <li>No cloud storage of recordings, transcripts, or summaries.</li>
+  <li>No third-party AI service: nothing you say or type is sent to one.</li>
+  <li>No third-party data sharing: there’s no data collected to share.</li>
+  <li>No recordings, and no copy of your dictations or voice profile on
+      any server of ours.</li>
 </ul>
 
 <h2 id="children">Children</h2>
@@ -172,8 +201,9 @@ knowingly collect data from children either.</p>
 <p>Under UK and EU data protection law you have rights of access,
 correction, erasure and objection over personal data held about you. For
 Sotto Voce, those rights are satisfied directly on your device: everything
-the app stores is visible in the app, can be edited or deleted there, and
-is destroyed when you delete the app. The developer holds no copy and so
+the app stores is on your iPhone, your recent dictations and voice profile
+can be cleared or replaced in the app, and all of it is destroyed when
+you delete the app. The developer holds no copy and so
 has nothing to disclose or erase.</p>
 
 <h2 id="changes">Changes to this policy</h2>
@@ -188,7 +218,7 @@ amended.</p>
 <p>Questions about privacy, or anything else:
 <a href="mailto:daniel.li.work+support@gmail.com">daniel.li.work+support@gmail.com</a></p>
 
-<p class="fine">Last updated 26 September 2026</p>
+<p class="fine">Last updated 23 October 2026</p>
 
 </div>
 </main>

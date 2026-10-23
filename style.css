@@ -554,19 +554,8 @@ p { margin: 0; text-wrap: pretty; }
 .kb-dots i:nth-child(2) { animation-delay: 0.2s; }
 .kb-dots i:nth-child(3) { animation-delay: 0.4s; }
 @keyframes dot { 30% { opacity: 1; } }
-.kb-sub { font-size: 3.3cqw; color: #6c7384; margin-top: 0.6cqw; }
-.kb-close {
-  width: 7cqw;
-  height: 7cqw;
-  border-radius: 50%;
-  background: rgba(60, 70, 90, 0.12);
-  display: grid;
-  place-items: center;
-}
-.kb-close svg { width: 2.8cqw; height: 2.8cqw; }
 .kb-visual { width: 100%; height: 30cqw; }
-.kb-hint { text-align: center; font-size: 2.8cqw; color: #9aa1ae; margin-top: -1cqw; }
-.kb-keys { display: grid; grid-template-columns: 1.15fr 1.1fr 1.4fr 1.15fr 1.15fr; gap: 1.8cqw; margin-top: 1.6cqw; }
+.kb-keys { display: grid; grid-template-columns: 1.3fr 1.5fr 1fr 1fr; gap: 1.8cqw; margin-top: 1.6cqw; }
 .kb-key {
   height: 9.6cqw;
   border-radius: 5cqw;
@@ -667,11 +656,11 @@ p { margin: 0; text-wrap: pretty; }
 }
 .privacy .wrap {
   display: grid;
-  grid-template-columns: minmax(0, 0.8fr) minmax(0, 1.2fr);
   gap: clamp(48px, 7vw, 110px);
   align-items: center;
 }
-.privacy-copy { display: grid; gap: 26px; }
+.privacy .wrap:has(> .device) { grid-template-columns: minmax(0, 0.8fr) minmax(0, 1.2fr); }
+.privacy-copy { display: grid; gap: 26px; max-width: 860px; }
 
 .flow {
   display: grid;
@@ -726,7 +715,7 @@ p { margin: 0; text-wrap: pretty; }
 .facts dt { font: 600 0.74rem/1.2 var(--sans); letter-spacing: 0.13em; text-transform: uppercase; color: var(--text-3); }
 .facts dd { margin: 0; color: var(--text-2); font-size: 0.98rem; }
 @media (max-width: 900px) {
-  .privacy .wrap { grid-template-columns: 1fr; }
+  .privacy .wrap:has(> .device) { grid-template-columns: 1fr; }
   .privacy .device { order: 2; justify-self: center; }
 }
 @media (max-width: 560px) {
@@ -736,89 +725,14 @@ p { margin: 0; text-wrap: pretty; }
   .flow-line::after { display: none; }
 }
 
-/* ---------- Listening looks ---------- */
-
-.looks .wrap { display: grid; grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr); gap: clamp(40px, 6vw, 96px); align-items: center; }
-.looks-copy { display: grid; gap: 24px; align-content: start; }
-.look-tabs {
-  display: inline-grid;
-  grid-auto-flow: column;
-  gap: 4px;
-  padding: 5px;
-  border-radius: 999px;
-  background: rgba(255, 255, 255, 0.04);
-  border: 1px solid var(--line);
-  justify-self: start;
-}
-.look-tabs button {
-  appearance: none;
-  border: 0;
-  background: transparent;
-  color: var(--text-2);
-  font: 500 0.95rem/1 var(--sans);
-  padding: 10px 18px;
-  border-radius: 999px;
-  cursor: pointer;
-  transition: color 0.2s, background-color 0.25s var(--ease-out), transform 0.15s;
-}
-.look-tabs button:hover { color: var(--text); background: rgba(255, 255, 255, 0.05); }
-.look-tabs button:active { transform: scale(0.97); }
-.look-tabs button[aria-selected="true"] {
-  color: var(--ink-0);
-  background: linear-gradient(100deg, #cfe3fb, #c9eee8);
-  font-weight: 600;
-}
-.look-caption { min-height: 3.3em; color: var(--text-2); max-width: 30em; }
-.look-caption strong { font-family: var(--serif); font-weight: 400; font-size: 1.35rem; display: block; margin-bottom: 4px; }
-.maths-note { font-size: 0.85rem; color: var(--text-3); }
-
-.look-stage { position: relative; display: grid; justify-items: center; }
-.look-stage::before {
-  content: "";
-  position: absolute;
-  inset: -10% -4%;
-  background: radial-gradient(closest-side, rgba(33, 160, 214, 0.28), transparent 72%);
-  filter: blur(20px);
-  z-index: -1;
-}
-.kb.panel {
-  width: min(460px, 100%);
-  container-type: inline-size;
-  border-radius: 34px;
-  padding: 26px 18px 18px;
-  box-shadow: var(--shadow-deep), inset 0 1px 0 rgba(255, 255, 255, 0.6);
-}
-.kb.panel .kb-title { font-size: 1.55rem; }
-.kb.panel .kb-sub { font-size: 0.9rem; }
-.kb.panel .kb-close { width: 32px; height: 32px; }
-.kb.panel .kb-close svg { width: 12px; height: 12px; }
-.kb.panel .kb-visual { height: 170px; }
-.kb.panel .kb-hint { font-size: 0.78rem; margin-top: 0; }
-.kb.panel .kb-keys { gap: 8px; margin-top: 10px; }
-.kb.panel .kb-key { height: 44px; border-radius: 22px; font-size: 0.95rem; }
-.kb.panel .kb-key svg { width: 18px; height: 18px; }
-.kb.panel .kb-dots i { width: 6px; height: 6px; }
-.kb.panel .kb-dots { gap: 4px; }
-.kb.panel .kb-globe { padding: 12px 0 0 12px; }
-.kb.panel .kb-globe svg { width: 24px; height: 24px; }
-@media (max-width: 900px) { .looks .wrap { grid-template-columns: 1fr; } }
-@media (max-width: 440px) {
-  .look-tabs button { padding: 9px 13px; font-size: 0.9rem; }
-  .kb.panel .kb-key .label-long { display: none; }
-}
-
 /* ---------- In the app ---------- */
 
 .in-app { background: var(--ink-1); border-block: 1px solid var(--line); overflow: hidden; }
-.duo { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: clamp(32px, 6vw, 96px); align-items: start; }
-.duo figure { margin: 0; display: grid; gap: 28px; justify-items: center; }
-.duo figure:nth-child(2) { margin-top: clamp(0px, 8vw, 120px); }
-.duo figcaption { max-width: 24em; text-align: center; display: grid; gap: 8px; }
-.duo figcaption strong { font-family: var(--serif); font-weight: 400; font-size: 1.5rem; }
-@media (max-width: 760px) {
-  .duo { grid-template-columns: 1fr; }
-  .duo figure:nth-child(2) { margin-top: 0; }
-}
+.feature-list { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: clamp(28px, 4vw, 56px); }
+.feature-list li { padding-top: 28px; border-top: 1px solid var(--line-strong); display: grid; gap: 12px; align-content: start; }
+.feature-list h3 { font-size: clamp(1.4rem, 2.2vw, 1.75rem); }
+.feature-list p { color: var(--text-2); }
+@media (max-width: 820px) { .feature-list { grid-template-columns: 1fr; } }
 
 /* ---------- Compare teaser ---------- */
 
@@ -950,6 +864,7 @@ p { margin: 0; text-wrap: pretty; }
 .doc { padding-bottom: clamp(80px, 10vw, 130px); color: var(--text-2); }
 .doc h2 { font-size: clamp(1.8rem, 3.4vw, 2.4rem); margin: 64px 0 18px; padding-top: 28px; border-top: 1px solid var(--line); }
 .doc h2:first-child { margin-top: 0; }
+.doc > h3 { margin: 32px 0 10px; }
 .doc p, .doc ul, .doc ol { margin: 0 0 16px; max-width: 40em; }
 .doc li { margin-bottom: 8px; }
 .doc ul { padding-left: 1.3em; }

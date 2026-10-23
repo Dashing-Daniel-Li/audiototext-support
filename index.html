@@ -20,7 +20,7 @@
 <link rel="apple-touch-icon" href="assets/icon-180.png">
 <link rel="preload" href="assets/fonts/baskervville-latin.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="assets/fonts/baskervville-italic-latin.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="stylesheet" href="style.css?v=4">
+<link rel="stylesheet" href="style.css?v=5">
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -49,11 +49,11 @@
   "@type": "FAQPage",
   "mainEntity": [
     {"@type": "Question", "name": "Is there a dictation app for iPhone that works offline?", "acceptedAnswer": {"@type": "Answer", "text": "Yes. Sotto Voce turns speech into text on the iPhone itself, so it works with no signal or in airplane mode once its speech models have downloaded. It types into any app through its own keyboard."}},
-    {"@type": "Question", "name": "Does Sotto Voce upload my voice?", "acceptedAnswer": {"@type": "Answer", "text": "No. Your voice is transcribed on your iPhone and is never uploaded, never stored on a server and never used to train anything. There is no account, no analytics and no tracking. The only network request is a one-way download of the speech model files."}},
+    {"@type": "Question", "name": "Does Sotto Voce upload my voice?", "acceptedAnswer": {"@type": "Answer", "text": "No. Your voice is transcribed on your iPhone and is never uploaded, never stored on a server and never used to train anything. There is no account, no analytics and no tracking. The only downloads are one-way: the model files it needs to run on the phone."}},
     {"@type": "Question", "name": "What is a private alternative to Wispr Flow on iPhone?", "acceptedAnswer": {"@type": "Answer", "text": "Sotto Voce is a dictation keyboard for iPhone that turns speech into text on the phone, where Wispr Flow transcribes on its servers. It works offline, needs no account, and Pro costs £2.99 a month or £19.99 a year."}},
-    {"@type": "Question", "name": "How is it different from the iPhone's built-in dictation?", "acceptedAnswer": {"@type": "Answer", "text": "iOS has dictation built in, and on recent iPhones much of it runs on the device too. Sotto Voce adds a keyboard that visibly reacts while it listens, with four looks to choose from; background noise removal before a word is transcribed; a choice of speech engine, including NVIDIA Parakeet; a list of recent dictations; and recordings transcribed with each speaker labelled."}},
+    {"@type": "Question", "name": "How is it different from the iPhone's built-in dictation?", "acceptedAnswer": {"@type": "Answer", "text": "iOS has dictation built in, and on recent iPhones much of it runs on the device too. Sotto Voce adds a keyboard that visibly reacts while it listens; a voice profile, learned on the phone, so it leaves out other people talking nearby; a Clear button that wipes the line so you can say it again; a full keyboard with autocorrect and emoji search for when you would rather type; and the microphone shown in the Dynamic Island, with a button to turn it off."}},
     {"@type": "Question", "name": "How much does Sotto Voce cost?", "acceptedAnswer": {"@type": "Answer", "text": "It is free to download and free for up to 1,000 words a week, with no account or card. Sotto Voce Pro removes the weekly limit: £2.99 a month, £19.99 a year with the first 7 days free, or £74.99 once for life. In the US it is $2.99, $19.99 or $79.99."}},
-    {"@type": "Question", "name": "Does it work on Android, Mac or Windows?", "acceptedAnswer": {"@type": "Answer", "text": "No. Sotto Voce is an iPhone app and needs iOS 26. Summaries of recordings also need an iPhone with Apple Intelligence."}},
+    {"@type": "Question", "name": "Does it work on Android, Mac or Windows?", "acceptedAnswer": {"@type": "Answer", "text": "No. Sotto Voce is an iPhone app and needs iOS 26."}},
     {"@type": "Question", "name": "Which languages does it support?", "acceptedAnswer": {"@type": "Answer", "text": "Sotto Voce is designed and tested for English."}},
     {"@type": "Question", "name": "Why does the keyboard ask for Full Access?", "acceptedAnswer": {"@type": "Answer", "text": "An iPhone keyboard needs Full Access to receive the text that the Sotto Voce app transcribes. It is not used to send anything anywhere; there is nowhere for it to go."}}
   ]
@@ -103,7 +103,7 @@
     </div>
 
     <div class="hero-stage">
-      <div class="device" role="img" aria-label="An iPhone in a chat with Sam. The Sotto Voce keyboard is listening, its wave moving with the voice, and the words are typed into the message field as they are spoken.">
+      <div class="device" role="img" aria-label="An iPhone in a chat with Sam. The Sotto Voce keyboard is listening, its glowing wave moving with the voice, and the words are typed into the message field as they are spoken.">
         <div class="device-screen">
           <div class="mock" data-demo="chat" aria-hidden="true">
             <div class="mock-status">
@@ -125,18 +125,12 @@
             </div>
             <div class="kb">
               <div class="kb-top">
-                <div>
-                  <div class="kb-title">Listening <span class="kb-dots"><i></i><i></i><i></i></span></div>
-                  <div class="kb-sub">iPhone Microphone · Enhanced</div>
-                </div>
-                <div class="kb-close"><svg viewBox="0 0 10 10" stroke="#5b6272" stroke-width="1.6" stroke-linecap="round"><path d="M1 1l8 8M9 1l-8 8"/></svg></div>
+                <div class="kb-title">Listening <span class="kb-dots"><i></i><i></i><i></i></span></div>
               </div>
               <canvas class="kb-visual" data-look="wave" data-voice="hero"></canvas>
-              <div class="kb-hint">Tap anywhere to stop · hold to move the cursor</div>
               <div class="kb-keys">
                 <div class="kb-key clear"><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M8 17h9M3.5 12.5l7-7a2 2 0 0 1 2.8 0l2.2 2.2a2 2 0 0 1 0 2.8L10 16H7.5z"/></svg>Clear</div>
                 <div class="kb-key">space</div>
-                <div class="kb-key"><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><rect x="7" y="2.5" width="6" height="10" rx="3"/><path d="M4.5 9.5a5.5 5.5 0 0 0 11 0M10 15v2.5M3 3l14 14"/></svg>Mute</div>
                 <div class="kb-key"><svg viewBox="0 0 22 16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"><path d="M7 2h12a1.5 1.5 0 0 1 1.5 1.5v9A1.5 1.5 0 0 1 19 14H7L1.5 8z"/><path d="M10.5 5.5l5 5M15.5 5.5l-5 5" stroke-linecap="round"/></svg></div>
                 <div class="kb-key"><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M16 4v6a2 2 0 0 1-2 2H4M8 8l-4 4 4 4"/></svg></div>
               </div>
@@ -209,15 +203,15 @@
     <ol class="steps-flow">
       <li class="reveal">
         <h3>Add the keyboard</h3>
-        <p>In <span class="path">Settings › General › Keyboard</span>, add Sotto Voce and allow Full Access. That's how the app hands your words to the keyboard, on the phone.</p>
+        <p>Allow the microphone, then turn on the Sotto Voce keyboard and Allow Full Access in Settings. That's how the app hands your words to the keyboard, on the phone.</p>
       </li>
       <li class="reveal">
-        <h3>Tap Start</h3>
-        <p>In any app, switch to Sotto Voce and tap Start. The first time in a session, the app opens for a moment to claim the microphone, because iOS doesn't let keyboards use it.</p>
+        <h3>Read one sentence</h3>
+        <p>Sotto Voce learns your voice from one sentence read out loud, so it can leave out other people talking nearby. It keeps learning as you dictate, on the phone.</p>
       </li>
       <li class="reveal">
-        <h3>Talk</h3>
-        <p>Your words are typed as you speak, and the keyboard moves with your voice so you can see it heard you. Tap anywhere on it to stop.</p>
+        <h3>Tap Start and talk</h3>
+        <p>In any app, switch to Sotto Voce and tap Start. Your words appear as you speak; tap the listening screen to finish. The first time in a session, the app opens for a moment to claim the microphone, because iOS doesn't let keyboards use it.</p>
       </li>
     </ol>
   </div>
@@ -225,14 +219,6 @@
 
 <section class="section privacy" id="privacy" aria-labelledby="privacy-title">
   <div class="wrap">
-    <div class="device sm reveal">
-      <div class="device-screen">
-        <picture>
-          <source srcset="assets/screen-privacy.webp" type="image/webp">
-          <img src="assets/screen-privacy.jpg" width="720" height="1564" loading="lazy" alt="Sotto Voce's Private by Design screen: speech is turned into text on this phone. Works offline, no accounts, runs on your phone.">
-        </picture>
-      </div>
-    </div>
     <div class="privacy-copy">
       <div class="section-head reveal" style="margin-bottom:0">
         <p class="eyebrow">Privacy</p>
@@ -257,8 +243,10 @@
         <p class="flow-note"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><path d="M7 18h10a4 4 0 0 0 .6-7.95A6 6 0 0 0 6.3 9.5 4.3 4.3 0 0 0 7 18z"/><path d="M4 4l16 16"/></svg>No server in the loop</p>
       </div>
       <dl class="facts reveal">
-        <div><dt>Speech engines</dt><dd>Apple's on-device recogniser, or NVIDIA Parakeet running through Core ML. You choose.</dd></div>
-        <div><dt>Network</dt><dd>One kind of request: a one-way download of model files from Hugging Face. None of your audio or words go with it.</dd></div>
+        <div><dt>Speech engine</dt><dd>Apple's speech recogniser, running on your iPhone.</dd></div>
+        <div><dt>Your voice</dt><dd>A voice profile learned on the phone, so it can leave out other people. It is numbers, not a recording, and it stays on your iPhone.</dd></div>
+        <div><dt>Network</dt><dd>One-way downloads of model files, the first time they're needed. None of your audio or words go with them.</dd></div>
+        <div><dt>Kept on the phone</dt><dd>Your settings, your weekly word count, and your recent dictations if you keep them. No audio is saved.</dd></div>
         <div><dt>Account</dt><dd>None. No sign-up, no email, no analytics, no tracking.</dd></div>
         <div><dt>Offline</dt><dd>Keeps working in airplane mode, underground, or anywhere without signal.</dd></div>
       </dl>
@@ -267,77 +255,26 @@
   </div>
 </section>
 
-<section class="section looks" id="looks" aria-labelledby="looks-title">
-  <div class="wrap">
-    <div class="looks-copy">
-      <div class="section-head reveal" style="margin-bottom:0">
-        <p class="eyebrow">Listening looks</p>
-        <h2 id="looks-title">Watch it listen.</h2>
-        <p class="lede">A keyboard you talk to should show it's hearing you. Pick the look you like; each one moves with your voice, so you know it caught the sentence without reading it back.</p>
-      </div>
-      <div class="look-tabs reveal" role="tablist" aria-label="Listening looks">
-        <button role="tab" id="tab-glow" aria-selected="false" aria-controls="look-panel" data-set-look="glow" tabindex="-1">Glow</button>
-        <button role="tab" id="tab-card" aria-selected="false" aria-controls="look-panel" data-set-look="card" tabindex="-1">Card</button>
-        <button role="tab" id="tab-wave" aria-selected="true" aria-controls="look-panel" data-set-look="wave">Wave</button>
-        <button role="tab" id="tab-ring" aria-selected="false" aria-controls="look-panel" data-set-look="ring" tabindex="-1">Ring</button>
-      </div>
-      <p class="look-caption" data-look-caption aria-live="polite"><strong>Wave</strong>Layered waves across the keyboard, in the gradient of your chosen colours.</p>
-      <p class="maths-note">Drawn live with the same maths the app uses.</p>
-    </div>
-    <div class="look-stage reveal">
-      <div class="kb panel" id="look-panel" role="tabpanel" aria-labelledby="tab-wave">
-        <div class="kb-top">
-          <div>
-            <div class="kb-title">Listening <span class="kb-dots"><i></i><i></i><i></i></span></div>
-            <div class="kb-sub">iPhone Microphone · Enhanced</div>
-          </div>
-          <div class="kb-close"><svg viewBox="0 0 10 10" stroke="#5b6272" stroke-width="1.6" stroke-linecap="round"><path d="M1 1l8 8M9 1l-8 8"/></svg></div>
-        </div>
-        <canvas class="kb-visual" data-look="wave" data-voice="looks" data-look-canvas aria-hidden="true"></canvas>
-        <div class="kb-hint">Tap anywhere to stop · hold to move the cursor</div>
-        <div class="kb-keys" aria-hidden="true">
-          <div class="kb-key clear"><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M8 17h9M3.5 12.5l7-7a2 2 0 0 1 2.8 0l2.2 2.2a2 2 0 0 1 0 2.8L10 16H7.5z"/></svg><span class="label-long">Clear</span></div>
-          <div class="kb-key"><span>space</span></div>
-          <div class="kb-key"><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><rect x="7" y="2.5" width="6" height="10" rx="3"/><path d="M4.5 9.5a5.5 5.5 0 0 0 11 0M10 15v2.5M3 3l14 14"/></svg><span class="label-long">Mute</span></div>
-          <div class="kb-key"><svg viewBox="0 0 22 16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"><path d="M7 2h12a1.5 1.5 0 0 1 1.5 1.5v9A1.5 1.5 0 0 1 19 14H7L1.5 8z"/><path d="M10.5 5.5l5 5M15.5 5.5l-5 5" stroke-linecap="round"/></svg></div>
-          <div class="kb-key"><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M16 4v6a2 2 0 0 1-2 2H4M8 8l-4 4 4 4"/></svg></div>
-        </div>
-        <div class="kb-globe" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="#2a2f3a" stroke-width="1.5"><circle cx="12" cy="12" r="9.5"/><path d="M2.5 12h19M12 2.5c3 3.2 3 15.8 0 19M12 2.5c-3 3.2-3 15.8 0 19"/></svg></div>
-      </div>
-    </div>
-  </div>
-</section>
-
 <section class="section in-app" aria-labelledby="inapp-title">
   <div class="wrap">
     <div class="section-head reveal">
-      <p class="eyebrow">In the app</p>
-      <h2 id="inapp-title">Every word counted. <br>Recordings, too.</h2>
+      <p class="eyebrow">On the keyboard</p>
+      <h2 id="inapp-title">Hears you. <br>Not the room.</h2>
     </div>
-    <div class="duo">
-      <figure class="reveal">
-        <div class="device sm">
-          <div class="device-screen">
-            <picture>
-              <source srcset="assets/screen-home.webp" type="image/webp">
-              <img src="assets/screen-home.jpg" width="720" height="1564" loading="lazy" alt="The Dictation screen: 24,463 words dictated, a bar chart of the last seven days, and an 11-day streak.">
-            </picture>
-          </div>
-        </div>
-        <figcaption><strong>Your dictation, at a glance</strong><span>Every word you've dictated, the last seven days, and your streak. Change the look, the speech engine and your text replacements from here.</span></figcaption>
-      </figure>
-      <figure class="reveal">
-        <div class="device sm">
-          <div class="device-screen">
-            <picture>
-              <source srcset="assets/screen-transcript.webp" type="image/webp">
-              <img src="assets/screen-transcript.jpg" width="720" height="1564" loading="lazy" alt="A transcript of a client call with two speakers, Priya and Tom, each line labelled and timed.">
-            </picture>
-          </div>
-        </div>
-        <figcaption><strong>Recordings, with who said what</strong><span>Record or import audio for a transcript with each speaker labelled, and a summary if you want one. Summaries need Apple Intelligence.</span></figcaption>
-      </figure>
-    </div>
+    <ul class="feature-list">
+      <li class="reveal">
+        <h3>Only your voice</h3>
+        <p>Once it has learned your voice, Sotto Voce leaves out other people talking nearby, so the people around you don't end up in your message. If it starts missing your words, Relearn my voice in Settings starts again.</p>
+      </li>
+      <li class="reveal">
+        <h3>A full keyboard, too</h3>
+        <p>When you'd rather type, there's a full QWERTY with autocorrect, and emoji you can search by name. Clear wipes the line if you want to say it again.</p>
+      </li>
+      <li class="reveal">
+        <h3>The mic, in the Dynamic Island</h3>
+        <p>While Sotto Voce is holding the microphone, the Dynamic Island shows it. Press and hold the island and tap the power button to turn the mic off.</p>
+      </li>
+    </ul>
   </div>
 </section>
 
@@ -371,8 +308,8 @@
         <p class="price">£0</p>
         <ul>
           <li>Up to 1,000 words a week through the keyboard</li>
-          <li>Every listening look</li>
-          <li>Recordings and transcripts, not counted against the limit</li>
+          <li>The full keyboard, with autocorrect and emoji search</li>
+          <li>Learns your voice and leaves out other people</li>
           <li>Everything on the device, as always</li>
         </ul>
       </div>
@@ -398,11 +335,11 @@
     </div>
     <div class="qa-list">
       <div class="qa"><h3>Is there a dictation app for iPhone that works offline?</h3><p>Yes. Sotto Voce turns speech into text on the iPhone itself, so it works with no signal or in airplane mode once its speech models have downloaded. It types into any app through its own keyboard.</p></div>
-      <div class="qa"><h3>Does Sotto Voce upload my voice?</h3><p>No. Your voice is transcribed on your iPhone and is never uploaded, never stored on a server and never used to train anything. There is no account, no analytics and no tracking. The only network request is a one-way download of the speech model files.</p></div>
+      <div class="qa"><h3>Does Sotto Voce upload my voice?</h3><p>No. Your voice is transcribed on your iPhone and is never uploaded, never stored on a server and never used to train anything. There is no account, no analytics and no tracking. The only downloads are one-way: the model files it needs to run on the phone.</p></div>
       <div class="qa"><h3>What is a private alternative to Wispr Flow on iPhone?</h3><p>Sotto Voce is a dictation keyboard for iPhone that turns speech into text on the phone, where Wispr Flow transcribes on its servers. It works offline, needs no account, and Pro costs £2.99 a month or £19.99 a year. <a href="vs-wispr-flow.html">See the full comparison</a>.</p></div>
-      <div class="qa"><h3>How is it different from the iPhone's built-in dictation?</h3><p>iOS has dictation built in, and on recent iPhones much of it runs on the device too. Sotto Voce adds a keyboard that visibly reacts while it listens, with four looks to choose from; background noise removal before a word is transcribed; a choice of speech engine, including NVIDIA Parakeet; a list of recent dictations; and recordings transcribed with each speaker labelled.</p></div>
+      <div class="qa"><h3>How is it different from the iPhone's built-in dictation?</h3><p>iOS has dictation built in, and on recent iPhones much of it runs on the device too. Sotto Voce adds a keyboard that visibly reacts while it listens; a voice profile, learned on the phone, so it leaves out other people talking nearby; a Clear button that wipes the line so you can say it again; a full keyboard with autocorrect and emoji search for when you would rather type; and the microphone shown in the Dynamic Island, with a button to turn it off.</p></div>
       <div class="qa"><h3>How much does Sotto Voce cost?</h3><p>It's free to download and free for up to 1,000 words a week, with no account or card. Sotto Voce Pro removes the weekly limit: £2.99 a month, £19.99 a year with the first 7 days free, or £74.99 once for life. In the US it's $2.99, $19.99 or $79.99.</p></div>
-      <div class="qa"><h3>Does it work on Android, Mac or Windows?</h3><p>No. Sotto Voce is an iPhone app and needs iOS 26. Summaries of recordings also need an iPhone with Apple Intelligence.</p></div>
+      <div class="qa"><h3>Does it work on Android, Mac or Windows?</h3><p>No. Sotto Voce is an iPhone app and needs iOS 26.</p></div>
       <div class="qa"><h3>Which languages does it support?</h3><p>Sotto Voce is designed and tested for English.</p></div>
       <div class="qa"><h3>Why does the keyboard ask for Full Access?</h3><p>An iPhone keyboard needs Full Access to receive the text that the Sotto Voce app transcribes. It isn't used to send anything anywhere; there is nowhere for it to go. <a href="support.html#full-access">More on Full Access</a>.</p></div>
     </div>
