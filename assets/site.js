@@ -111,16 +111,7 @@
     return s;
   }
 
-  var voices = { hero: new Voice(), backdrop: new Voice() };
-
-  document.querySelectorAll("canvas[data-look]").forEach(function (canvas) {
-    scene(canvas, function (time, animates) {
-      var v = voices[canvas.getAttribute("data-voice")] || voices.hero;
-      var s = setup(canvas);
-      if (!s) return;
-      drawWave(s.ctx, s.w, s.h, time, animates ? v.level : 0.85, animates);
-    });
-  });
+  var voices = { backdrop: new Voice() };
 
   document.querySelectorAll("canvas[data-waves]").forEach(function (canvas) {
     var quiet = canvas.getAttribute("data-waves") === "quiet";
@@ -132,55 +123,15 @@
     });
   });
 
-  // ---- The hero's typing demo ----
-  var lines = [
-    "Running five minutes late. Save me a seat, and the popcorn.",
-    "Parking now. Get the big tub, I'll pay you back.",
-    "Found you. Third row from the back?"
-  ];
-  var typed = document.querySelector("[data-typed]");
-  var thread = document.querySelector("[data-thread]");
-
-  function typingDemo() {
-    if (!typed || !thread) return;
-    var lineIndex = 0;
-    function typeLine() {
-      var words = lines[lineIndex % lines.length].split(" ");
-      var n = 0;
-      typed.textContent = "";
-      voices.hero.forced = true;
-      function nextWord() {
-        n++;
-        typed.textContent = words.slice(0, n).join(" ");
-        if (n < words.length) {
-          var pause = /[.,?!]$/.test(words[n - 1]) ? 420 : 170 + Math.random() * 120;
-          voices.hero.forced = !/[.,?!]$/.test(words[n - 1]);
-          setTimeout(function () { voices.hero.forced = true; nextWord(); }, pause);
-        } else {
-          voices.hero.forced = false;
-          setTimeout(send, 1300);
-        }
-      }
-      setTimeout(nextWord, 500);
-    }
-    function send() {
-      var bubble = document.createElement("div");
-      bubble.className = "bubble out new";
-      bubble.textContent = typed.textContent;
-      thread.appendChild(bubble);
-      typed.textContent = "";
-      while (thread.children.length > 7) thread.removeChild(thread.firstElementChild);
-      lineIndex++;
-      if (lineIndex % lines.length === 0) {
-        setTimeout(function () {
-          thread.innerHTML = '<div class="bubble in">still on for tonight?</div><div class="bubble out">yes!! leaving work now</div><div class="mock-stamp">Today 19:42</div><div class="bubble in">where are you?? the film starts at 8</div><div class="bubble out">omw!!</div><div class="bubble in">bring snacks. that\'s not optional</div>';
-          typeLine();
-        }, 2400);
-      } else {
-        setTimeout(typeLine, 1400);
-      }
-    }
-    typeLine();
+  // ---- The hero's live demo: a recording of the app, played only while it is on screen ----
+  var heroVideo = document.querySelector("[data-hero-video]");
+  if (heroVideo && !reduce && "IntersectionObserver" in window) {
+    new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
+        if (entry.isIntersecting) { var p = heroVideo.play(); if (p && p.catch) p.catch(function () {}); }
+        else heroVideo.pause();
+      });
+    }, { threshold: 0.25 }).observe(heroVideo);
   }
 
   // ---- Running ----
@@ -204,7 +155,6 @@
       var t = (now - start) / 1000;
       var dt = Math.min(0.05, (now - last) / 1000);
       last = now;
-      voices.hero.step(t, dt);
       voices.backdrop.step(t * 0.6 + 7, dt);
       if (!document.hidden) {
         scenes.forEach(function (s) { if (s.visible) s.draw(t, true); });
@@ -212,7 +162,6 @@
       requestAnimationFrame(frame);
     }
     requestAnimationFrame(frame);
-    typingDemo();
   }
 
   // ---- Reveal on scroll ----
